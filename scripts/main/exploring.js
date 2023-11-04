@@ -1,0 +1,162 @@
+import { exploreProduct1, exploreProduct2 } from "../product/product.js";
+import { addComa } from "../utils/money.js";
+
+export function exploreSellTop() {
+  let exploreHTML = "";
+  let counter = 0;
+  let counter2 = 4;
+
+  exploreProduct1.forEach((expProduk) => {
+    counter2++;
+
+    const harga = addComa(expProduk.harga);
+    counter++;
+
+    exploreHTML += `
+    <div class="best-sell-card transition-count${expProduk.bsPart}">
+    <div class="image-product">
+      <div class="image-product-overlay">
+        <div class="overlay-top">
+          <div class="action-overlay aksi-heart-${counter2}">
+            <i class="fa-regular fa-heart hearticon"></i>
+          </div>
+          <div class="action-overlay aksi-lihat">
+            <i class="fa-regular fa-eye"></i>
+          </div>
+        </div>
+
+        <div class="overlay-bottom overlayHolder2${counter}">
+          <p>Tambah Kan Ke keranjang</p>
+        </div>
+      </div>
+      <img src="src/exploreimg/${expProduk.foto}" alt="Gucci Bag" />
+    </div>
+    <p>${expProduk.nama}</p>
+    <div class="pricingAndRate">
+      <p>Rp. ${harga}</p>
+
+      <div class="mrate">
+        <img src="src/rating/rating-${expProduk.rating.bintang}.png" alt="" />
+        <p>( ${expProduk.rating.jumlah} )</p>
+      </div>
+    </div>
+  </div>
+    `;
+
+    document.querySelector(".mproductTop").innerHTML = exploreHTML;
+  });
+}
+
+export function exploreSellBottom() {
+  let expHTML = "";
+
+  let counter = 0;
+  exploreProduct2.forEach((element) => {
+    let formatMoney = addComa(element.harga);
+    counter++;
+    expHTML += `
+    <div class="best-sell-card transition-count2${element.bsPart}">
+    <div class="image-product">
+      <div class="image-product-overlay">
+        <div class="overlay-top">
+          <div class="action-overlay aksi-hearts${counter}">
+            <i class="fa-regular fa-heart hearticon"></i>
+          </div>
+          <div class="action-overlay aksi-lihat">
+            <i class="fa-regular fa-eye"></i>
+          </div>
+        </div>
+
+        <div class="overlay-bottom overlayHolder3${element.bsPart}">
+          <p>Tambah Kan Ke keranjang</p>
+        </div>
+      </div>
+      <img src="src/exploreimg/${element.foto}" alt="Gucci Bag" class="imgHolder${counter}"/>
+    </div>
+    <p>${element.nama}</p>
+    <div class="pricingAndRate">
+      <p>Rp. ${formatMoney}</p>
+
+      <div class="mrate">
+        <img src="src/rating/rating-${element.rating.bintang}.png" alt="" />
+        <p>(${element.rating.jumlah})</p>
+      </div>
+    </div>
+    <div class="colorProduct">
+      <div class="defaultColor outlineTransition color1${counter}" style="background-color: ${element.color1};"></div>
+      <div class="defaultColor color2${counter}" style="background-color: ${element.color2};"></div>
+    </div>
+  </div>
+    `;
+
+    document.querySelector(".mproductBottom").innerHTML = expHTML;
+  });
+}
+
+export function transition() {
+  let count = 0;
+  let counter2 = 4;
+  exploreProduct1.forEach((element) => {
+    count++;
+
+    counter2++;
+
+    const parent = document.querySelector(`.transition-count${element.bsPart}`);
+    const overbtm = document.querySelector(`.overlayHolder2${count}`);
+    let heartbtn = document.querySelector(`.aksi-heart-${counter2}`);
+
+    heartbtn.addEventListener("click", () => {
+      heartbtn.classList.toggle("aksianimate");
+    });
+
+    parent.addEventListener("mouseover", () => {
+      overbtm.classList.add("animate-ovrbottom");
+    });
+
+    parent.addEventListener("mouseout", () => {
+      overbtm.classList.remove("animate-ovrbottom");
+    });
+  });
+
+  let anothercount = 0;
+  exploreProduct2.forEach((element2) => {
+    anothercount++;
+
+    let heartbtn = document.querySelector(`.aksi-hearts${anothercount}`);
+    const color1 = document.querySelector(`.color1${anothercount}`);
+    const color2 = document.querySelector(`.color2${anothercount}`);
+    const imgHolder = document.querySelector(`.imgHolder${anothercount}`);
+    console.log(color2);
+
+    color1.addEventListener("click", () => {
+      color2.classList.remove("outlineTransition");
+      color1.classList.add("outlineTransition");
+      imgHolder.setAttribute("src", `src/exploreimg/${element2.foto}`);
+    });
+
+    color2.addEventListener("click", () => {
+      color2.classList.add("outlineTransition");
+      color1.classList.remove("outlineTransition");
+      imgHolder.setAttribute("src", `src/exploreimg/${element2.foto2}`);
+    });
+
+    heartbtn.addEventListener("click", () => {
+      heartbtn.classList.toggle("aksianimate");
+    });
+
+    const parent2 = document.querySelector(
+      `.transition-count2${element2.bsPart}`
+    );
+    const overbtm2 = document.querySelector(
+      `.overlayHolder3${element2.bsPart}`
+    );
+
+    parent2.addEventListener("mouseover", () => {
+      overbtm2.classList.add("animate-ovrbottom");
+    });
+
+    parent2.addEventListener("mouseout", () => {
+      overbtm2.classList.remove("animate-ovrbottom");
+    });
+  });
+}
