@@ -11,6 +11,12 @@ export function countDown1() {
   const minutesi = document.getElementById("minutes");
   const secondsi = document.getElementById("seconds");
 
+  //flash sale part
+  const fdays = document.getElementById("flashDays");
+  const fhours = document.getElementById("flashHours");
+  const fminutes = document.getElementById("flashMinutes");
+  const fseconds = document.getElementById("flashSeconds");
+
   const countdownInterval = setInterval(() => {
     const now = new Date().getTime();
     const distance = countdownTime - now;
@@ -23,11 +29,17 @@ export function countDown1() {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Display the countdown
+    // Display the countdown best-selll
     daysi.innerHTML = days;
     hoursi.innerHTML = hours;
     minutesi.innerHTML = minutes;
     secondsi.innerHTML = seconds;
+
+    //display the countdown flash sale
+    fdays.innerHTML = days;
+    fhours.innerHTML = hours;
+    fminutes.innerHTML = minutes;
+    fseconds.innerHTML = seconds;
 
     // Check if the countdown is finished
     if (distance < 0) {
