@@ -1,5 +1,5 @@
 import { animasiList } from "./animateJs/listPart.js";
-import { sliderAnimate, clickSlider } from "./animateJs/slider.js";
+import { sliderAnimate } from "./animateJs/slider.js";
 import { countDown1 } from "./utils/countDown.js";
 import {
   exploreSellTop,
@@ -22,4 +22,3 @@ animasiList();
 countDown1();
 transition();
 navbarRes();
-clickSlider();
