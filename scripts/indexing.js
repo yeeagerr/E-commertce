@@ -6,7 +6,7 @@ import {
   exploreSellBottom,
   transition,
 } from "./main/exploring.js";
-import { navbarRes } from "./animateJs/responsive.js";
+import { navbarRes, userDrop } from "./animateJs/responsive.js";
 
 // generating
 import { generateBestSelling, AnimateProduct } from "./main/bestSelling.js";
@@ -22,3 +22,4 @@ animasiList();
 countDown1();
 transition();
 navbarRes();
+userDrop();

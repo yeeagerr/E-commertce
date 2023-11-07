@@ -161,3 +161,70 @@ export const exploreProduct2 = [
     bsPart: 4,
   },
 ];
+
+export const flashSale = [
+  {
+    id: "G4M3P4D",
+    foto: "guccibag.png",
+    nama: "HAVIT HV-G92 Gamepad",
+    diskon: 2505872,
+    harga: 1880496,
+    rating: {
+      bintang: 5,
+      jumlah: 88,
+    },
+    keywords: ["gaming", "console", "gamer"],
+  },
+
+  {
+    id: "GU55IDU",
+    foto: "guccibag.png",
+    nama: "Gucci duffle bag",
+    diskon: 18499680,
+    harga: 15249600,
+    rating: {
+      bintang: 4,
+      jumlah: 75,
+    },
+    keywords: ["fashion", "bag"],
+  },
+
+  {
+    id: "GU55IDU",
+    foto: "guccibag.png",
+    nama: "Gucci duffle bag",
+    diskon: 18499680,
+    harga: 15249600,
+    rating: {
+      bintang: 4,
+      jumlah: 75,
+    },
+    keywords: ["fashion", "bag"],
+  },
+
+  {
+    id: "GU55IDU",
+    foto: "guccibag.png",
+    nama: "Gucci duffle bag",
+    diskon: 18499680,
+    harga: 15249600,
+    rating: {
+      bintang: 4,
+      jumlah: 75,
+    },
+    keywords: ["fashion", "bag"],
+  },
+
+  {
+    id: "GU55IDU",
+    foto: "guccibag.png",
+    nama: "Gucci duffle bag",
+    diskon: 18499680,
+    harga: 15249600,
+    rating: {
+      bintang: 4,
+      jumlah: 75,
+    },
+    keywords: ["fashion", "bag"],
+  },
+];
