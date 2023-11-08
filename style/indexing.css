@@ -126,7 +126,7 @@ body {
 }
 
 .navres,
-.navbar {
+.mnavbar {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -1096,7 +1096,7 @@ body {
   margin-bottom: 6px;
 }
 
-.footer {
+.mfooter {
   background-color: black;
   height: 350px;
   display: flex;
@@ -1215,6 +1215,17 @@ body {
   cursor: pointer;
 }
 
+.alert-danger {
+  background-color: #f8d7da;
+  height: 60px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  display: none;
+  align-items: center;
+  justify-content: start;
+  padding-left: 20px;
+}
+
 @media only screen and (max-width: 435px) {
   .start-top {
     display: none;
@@ -1229,7 +1240,7 @@ body {
   .list-produk {
     display: none;
   }
-  .navbar {
+  .mnavbar {
     display: none;
   }
 
@@ -1390,7 +1401,7 @@ body {
     justify-content: start;
   }
 
-  .footer {
+  .mfooter {
     height: 800px;
     align-items: start;
     padding-top: 50px;
@@ -1459,7 +1470,7 @@ body {
   .list-produk {
     display: none;
   }
-  .navbar {
+  .mnavbar {
     display: none;
   }
 
@@ -1620,7 +1631,7 @@ body {
     justify-content: start;
   }
 
-  .footer {
+  .mfooter {
     height: 800px;
     align-items: start;
     padding-top: 50px;
@@ -1690,7 +1701,7 @@ body {
   .list-produk {
     display: flex;
   }
-  .navbar {
+  .mnavbar {
     display: none;
   }
 
@@ -1849,7 +1860,7 @@ body {
     justify-content: start;
   }
 
-  .footer {
+  .mfooter {
     height: 800px;
     align-items: start;
     padding-top: 50px;
@@ -1912,7 +1923,7 @@ body {
   .list-produk {
     display: flex;
   }
-  .navbar {
+  .mnavbar {
     display: flex;
   }
 
@@ -2075,7 +2086,7 @@ body {
     justify-content: start;
   }
 
-  .footer {
+  .mfooter {
     height: 800px;
     align-items: start;
     padding-top: 50px;
@@ -2138,7 +2149,7 @@ body {
   .list-produk {
     display: flex;
   }
-  .navbar {
+  .mnavbar {
     display: flex;
   }
 
@@ -2310,7 +2321,7 @@ body {
     justify-content: start;
   }
 
-  .footer {
+  .mfooter {
     height: 300px;
     align-items: start;
     padding-top: 50px;
@@ -2410,7 +2421,7 @@ body {
   .list-produk {
     display: flex;
   }
-  .navbar {
+  .mnavbar {
     display: flex;
   }
 
@@ -2581,7 +2592,7 @@ body {
     justify-content: start;
   }
 
-  .footer {
+  .mfooter {
     height: 300px;
     align-items: start;
     padding-top: 50px;
@@ -2680,7 +2691,7 @@ body {
   .list-produk {
     display: flex;
   }
-  .navbar {
+  .mnavbar {
     display: flex;
   }
 
@@ -2851,7 +2862,7 @@ body {
     justify-content: start;
   }
 
-  .footer {
+  .mfooter {
     height: 300px;
     align-items: start;
     padding-top: 50px;
