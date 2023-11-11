@@ -17,3 +17,6 @@ export function userDrop() {
     userDropDown.classList.toggle("transition-user-icon");
   });
 }
+
+navbarRes();
+userDrop();

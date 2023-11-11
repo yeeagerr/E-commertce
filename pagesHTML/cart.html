@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Error Not Found!!</title>
-    <link rel="stylesheet" href="style/err.css" />
+    <link rel="stylesheet" href="../style/cart.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
+    <title>Checkout Cart</title>
   </head>
   <body>
     <div class="start-top">
@@ -25,11 +25,11 @@
       </select>
     </div>
 
-    <div class="navbar">
+    <div class="mnavbar">
       <h1>LOGO</h1>
 
       <div class="nav-list">
-        <p><a href="">Beranda</a></p>
+        <p><a href="../indexing.html">Beranda</a></p>
         <p><a href="">Hubungi</a></p>
         <p><a href="">Tentang</a></p>
         <p><a href="">Registrasi</a></p>
@@ -47,6 +47,40 @@
           class="fa-solid fa-cart-shopping icon-extra"
           style="color: #000000"
         ></i>
+
+        <div class="user-icon">
+          <img
+            src="../src/icon/user.png"
+            class="user-photo"
+            alt="user default "
+          />
+          <div class="user-icon-dropdown">
+            <div class="drop-user-content">
+              <img
+                class="user-photo-dropdown"
+                src="../src/icon/user2.png"
+                alt="user setting"
+              />
+              <p>Manage My Account</p>
+            </div>
+            <div class="drop-user-content">
+              <img
+                class="user-photo-dropdown"
+                src="../src/icon/icon-mallbag.png"
+                alt="user setting"
+              />
+              <p>Keranjang Saya</p>
+            </div>
+            <div class="drop-user-content">
+              <img
+                class="user-photo-dropdown"
+                src="../src/icon/Icon-logout.png"
+                alt="user setting"
+              />
+              <p>Logout</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -93,23 +127,113 @@
       </div>
     </div>
 
-    <div class="err-container">
-      <h1 style="font-size: 100px; margin: 0px">404 Not Found</h1>
-      <p>Kamu mengunjungi halaman yang tidak ada. Kamu bisa kembali</p>
+    <div class="cart-container">
+      <div class="cart-content-holder">
+        <div class="cart-items-shop">
+          <div class="cart-title">
+            <div>
+              <p>Produk</p>
+            </div>
 
-      <button
-        style="
-          background-color: #db4444;
-          border: none;
-          height: 45px;
-          width: 200px;
-          color: white;
-          border-radius: 5px;
-          cursor: pointer;
-        "
-      >
-        Kembali Ke Beranda
-      </button>
+            <div>
+              <p>Harga</p>
+            </div>
+
+            <div>
+              <p>Jumlah</p>
+            </div>
+
+            <div>
+              <p>Jumlah Harga</p>
+            </div>
+          </div>
+
+          <div class="cart-items-container">
+            <div class="cart-items">
+              <div class="cart-produk">
+                <div class="produk-img"></div>
+                <p>LCD Monitor</p>
+              </div>
+              <div class="harga">
+                <p>Rp. 10,202,952</p>
+              </div>
+              <div class="harga">
+                <p>01</p>
+              </div>
+              <div class="harga">
+                <p>Rp. 10,202,952</p>
+              </div>
+            </div>
+
+            <div class="cart-items">
+              <div class="cart-produk">
+                <div class="produk-img"></div>
+                <p>LCD Monitor</p>
+              </div>
+              <div class="harga">
+                <p>Rp. 10,202,952</p>
+              </div>
+              <div class="harga">
+                <p>01</p>
+              </div>
+              <div class="harga">
+                <p>Rp. 10,202,952</p>
+              </div>
+            </div>
+
+            <div class="cart-items">
+              <div class="cart-produk">
+                <div class="produk-img"></div>
+                <p>LCD Monitor</p>
+              </div>
+              <div class="harga">
+                <p>Rp. 10,202,952</p>
+              </div>
+              <div class="harga">
+                <p>01</p>
+              </div>
+              <div class="harga">
+                <p>Rp. 10,202,952</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cart-btn">
+            <button>Return To Shop</button>
+            <button>Update Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="transaction-part">
+        <div class="kupon-container">
+          <input type="text" placeholder="Kode Kupon" />
+          <button>Konfirmasi Kupon</button>
+        </div>
+
+        <div class="total-container">
+          <div class="title-box">
+            <p>Total Keranjang</p>
+          </div>
+
+          <div class="total-content">
+            <div class="total-box-card">
+              <p>Total Murni:</p>
+              <p>Rp. 1.000.000</p>
+            </div>
+            <div class="total-box-card">
+              <p>Ongkir:</p>
+              <p>Rp. 0</p>
+            </div>
+            <div class="total-box-card">
+              <p>Total Keseluruhan:</p>
+              <p>Rp. 1.000.000</p>
+            </div>
+
+            <button>Proses Pemesanan</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="footer">
@@ -191,4 +315,6 @@
       </div>
     </div>
   </body>
+
+  <script src="../scripts/animateJs/responsive.js" type="module"></script>
 </html>
