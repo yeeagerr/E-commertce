@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CheckOut</title>
+    <link rel="stylesheet" href="../style/checkout.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="start-top">
+      <p>
+        Penjualan Tanggal dan Bulan Oktober ini Gratis Ongkir
+        <strong>50%</strong> -
+        <a href="">Belanja Sekarang</a>
+      </p>
+
+      <select value="" class="pilih-bahasa">
+        <option name="indonesia">Bahasa Indonesia</option>
+        <option name="english">English</option>
+        <option name="japan">Japan</option>
+      </select>
+    </div>
+
+    <div class="mnavbar">
+      <h1>LOGO</h1>
+
+      <div class="nav-list">
+        <p><a href="../indexing.html">Beranda</a></p>
+        <p><a href="">Hubungi</a></p>
+        <p><a href="">Tentang</a></p>
+        <p><a href="">Registrasi</a></p>
+        <p><a href="">Login</a></p>
+      </div>
+
+      <div class="nav-extra">
+        <input class="searching" type="text" placeholder="Cari Barang" />
+        <i
+          class="fa-solid fa-magnifying-glass search-icon"
+          style="cursor: pointer; color: #000000"
+        ></i>
+        <i class="fa-regular fa-heart icon-extra" style="color: #000000"></i>
+        <i
+          class="fa-solid fa-cart-shopping icon-extra"
+          style="color: #000000"
+        ></i>
+
+        <div class="user-icon">
+          <img
+            src="../src/icon/user.png"
+            class="user-photo"
+            alt="user default "
+          />
+          <div class="user-icon-dropdown">
+            <div class="drop-user-content">
+              <img
+                class="user-photo-dropdown"
+                src="../src/icon/user2.png"
+                alt="user setting"
+              />
+              <p>Manage My Account</p>
+            </div>
+            <div class="drop-user-content">
+              <img
+                class="user-photo-dropdown"
+                src="../src/icon/icon-mallbag.png"
+                alt="user setting"
+              />
+              <p>Keranjang Saya</p>
+            </div>
+            <div class="drop-user-content">
+              <img
+                class="user-photo-dropdown"
+                src="../src/icon/Icon-logout.png"
+                alt="user setting"
+              />
+              <p>Logout</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="navres">
+      <div class="three-line">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="nav-extra">
+        <input class="searching" type="text" placeholder="Cari Barang" />
+        <i
+          class="fa-solid fa-magnifying-glass search-icon"
+          style="cursor: pointer; color: #000000"
+        ></i>
+        <i class="fa-regular fa-heart icon-extra" style="color: #000000"></i>
+        <i
+          class="fa-solid fa-cart-shopping icon-extra"
+          style="color: #000000"
+        ></i>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <div class="resLogReg">
+        <button>Masuk</button>
+        <button>Daftar</button>
+      </div>
+
+      <div class="resnav-content">
+        <p><i class="fa-solid fa-house"></i><a href="">Beranda</a></p>
+        <p><i class="fa-solid fa-address-book"></i> <a href="">Hubungi</a></p>
+        <p><i class="fa-solid fa-circle-info"></i><a href="">Tentang</a></p>
+        <p><i class="fa-solid fa-address-card"></i><a href="">Registrasi</a></p>
+        <p><i class="fa-solid fa-address-card"></i><a href="">Login</a></p>
+      </div>
+
+      <div class="resnav-info">
+        <p>
+          Penjualan Tanggal dan Bulan Oktober ini Gratis Ongkir
+          <strong>50%</strong> -
+          <a href="">Belanja Sekarang</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="checkout-container">
+      <div class="checkout-content-left">
+        <h1>Billing Details</h1>
+
+        <form class="form-checkout" action="" method="post">
+          <div class="input-sect">
+            <p>Nama Panjang</p>
+            <input type="text" />
+          </div>
+
+          <div class="input-sect">
+            <p>Email Address</p>
+            <input type="text" name="nama" />
+          </div>
+
+          <div class="input-sect">
+            <p>Alamat Rumah</p>
+            <input type="text" />
+          </div>
+
+          <div class="input-sect">
+            <p>Apartement, Lantai, Kamar, dll (opsional)</p>
+            <input type="text" />
+          </div>
+
+          <div class="input-sect">
+            <p>Kota</p>
+            <input type="text" />
+          </div>
+
+          <div class="input-sect">
+            <p>Nomor Handphone</p>
+            <input type="text" />
+          </div>
+
+          <input type="submit" id="submitbtn" style="display: none" />
+        </form>
+      </div>
+      <div class="checkout-content-right">
+        <div class="product-checkout">
+          <div class="product-sell-checkout"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script type="module" src="../scripts/animateJs/responsive.js"></script>
+</html>
