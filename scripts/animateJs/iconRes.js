@@ -1,4 +1,4 @@
-export function userDrop() {
+function userDrop() {
   const userHover = document.querySelector(".user-icon");
   const userDropDown = document.querySelector(".user-icon-dropdown");
 
