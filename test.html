@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 200px;
+        height: auto;
+      }
+
+      .holder {
+        border: solid black 1px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="arraying">array</p>
+    <div class="box"></div>
+
+    <input type="text" id="searchInput" placeholder="Search..." />
+    <ul id="searchResults"></ul>
+  </body>
+  <script>
+    const arraying = document.querySelector(".arraying");
+    const output = document.querySelector(".box");
+    const searchbar = document.getElementById("searchbar");
+
+    const searchInput = document.getElementById("searchInput");
+    const searchResults = document.getElementById("searchResults");
+
+    searchInput.addEventListener("input", function () {
+      const searchTerm = searchInput.value.toLowerCase();
+      const filteredResults = product.filter((item) => {
+        return (
+          item.nama.toLowerCase().includes(searchTerm) ||
+          item.kelas.toLowerCase().includes(searchTerm) ||
+          item.hobi.some((h) => h.toLowerCase().includes(searchTerm))
+        );
+      });
+
+      displayResults(filteredResults);
+    });
+
+    function displayResults(results) {
+      searchResults.innerHTML = "";
+
+      if (results.length === 0) {
+        searchResults.innerHTML = "<li>No results found.</li>";
+        return;
+      }
+
+      results.forEach((result) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = `${result.nama} - ${result.kelas}`;
+        searchResults.appendChild(listItem);
+      });
+    }
+
+    const product = [
+      {
+        nama: "habib",
+        kelas: "11 pplg 1",
+        hobi: ["sepak bola", "futsal"],
+      },
+      {
+        nama: "abdillah",
+        kelas: "11 pplg 1",
+        hobi: ["takraw", "futsal"],
+      },
+
+      {
+        nama: "Jarwo",
+        kelas: "11 pplg 1",
+        hobi: [],
+      },
+    ];
+    let htmls = "";
+
+    product.forEach((element) => {
+      let isHobi = element.hobi.length > 0 ? element.hobi : "Gaada Hobi";
+      htmls += `
+      <div class="holder">
+            <p class="nama">Nama : ${element.nama}</p>
+            <p class="kelas">Kelas : ${element.kelas}</p>
+            <p class="hobi">Hobi : ${isHobi}</p>
+        </div>`;
+
+      output.innerHTML = htmls;
+
+      console.log(element);
+      console.log(element.hobi);
+    });
+  </script>
+</html>

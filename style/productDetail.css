@@ -266,6 +266,294 @@ body {
   margin-left: 30px;
 }
 
+.detail-container {
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.detail-img {
+  width: 850px;
+  height: 90%;
+  align-items: center;
+  justify-content: space-evenly;
+  display: flex;
+}
+
+.right-img {
+  width: 70%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background-color: #f5f5f5;
+}
+
+.right-img img {
+  width: 75%;
+  height: 75%;
+  object-fit: contain;
+}
+
+.left-img {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.box-detail {
+  height: 150px;
+  background-color: #f5f5f5;
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+.box-detail img {
+  width: 55%;
+  height: 65%;
+  object-fit: contain;
+}
+
+.detail-info {
+  width: 400px;
+  height: 90%;
+}
+
+.detail-info h2,
+.detail-info h1,
+.detail-info p {
+  margin: 0px;
+}
+
+.ratenOther {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.ratenOther p:nth-child(2) {
+  margin: 0px 10px 0 10px;
+  color: #8f8f8f;
+}
+
+.ratenOther p:nth-child(3) {
+  margin: 0 10px 0 0px;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.ratenOther p:last-child {
+  color: #00ff66;
+}
+
+.price {
+  letter-spacing: 1px;
+  font-size: x-large;
+}
+
+.line {
+  border: solid #cacaca 1px;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.colours {
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 37%;
+}
+
+.colours p {
+  font-size: x-large;
+}
+
+.colorProduct {
+  display: flex;
+}
+
+.defaultColor {
+  margin: 0px 15px 0px 0px;
+  border-radius: 100%;
+  border: solid black 1px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: 0.15s;
+}
+
+.defaultColor:hover {
+  outline: solid black 2px;
+  outline-offset: 2px;
+}
+
+.outlineTransition {
+  outline: solid black 2px;
+  outline-offset: 2px;
+}
+
+.sizes {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  height: 45px;
+}
+
+.sizes > :first-child {
+  font-size: x-large;
+}
+
+.boxSizes {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.boxS {
+  border: solid black 1px;
+  width: 40px;
+  height: 80%;
+  border-radius: 7px;
+  transition: 0.15s;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.boxS:hover {
+  background-color: #db4444;
+  color: white;
+  border: none;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  height: 50px;
+  margin-top: 15px;
+}
+
+.increment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  width: auto;
+  border: solid #cacaca 1px;
+  border-radius: 5px;
+}
+
+.increase,
+.decrease {
+  width: 40px;
+  height: 100%;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.decrease {
+  border-right: solid #cacaca 1px;
+}
+
+.increase {
+  border-left: solid #cacaca 1px;
+}
+
+.decrease:hover,
+.increase:hover {
+  background-color: #db4444;
+}
+
+.decrease:hover i,
+.increase:hover i {
+  color: white;
+}
+
+.display-increment {
+  width: 75px;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+#BeliBtn {
+  border: none;
+  background-color: #db4444;
+  color: white;
+  height: 90%;
+  width: 160px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.lope {
+  border: solid black 1px;
+  width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.lope i {
+  font-size: 23px;
+  transition: 0.15s;
+}
+
+.lope:hover i {
+  color: red;
+  transform: scale(1.2, 1.2);
+}
+
+.offer-services {
+  margin-top: 35px;
+  height: auto;
+  border: solid #cacaca 1px;
+  border-radius: 5px;
+}
+
+.offer-services > :first-child {
+  border-bottom: solid #cacaca 1px;
+}
+
+.ofs-box {
+  width: 100%;
+  height: 85px;
+  display: flex;
+  align-items: center;
+}
+
+.ofs-box img {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.keterangan-services p:nth-child(1) {
+  font-size: large;
+  font-weight: bold;
+}
+
+.keterangan-services p:nth-child(2) a {
+  color: black;
+}
+
 @media only screen and (max-width: 435px) {
   .start-top {
     display: none;
