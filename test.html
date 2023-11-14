@@ -31,34 +31,6 @@
     const searchInput = document.getElementById("searchInput");
     const searchResults = document.getElementById("searchResults");
 
-    searchInput.addEventListener("input", function () {
-      const searchTerm = searchInput.value.toLowerCase();
-      const filteredResults = product.filter((item) => {
-        return (
-          item.nama.toLowerCase().includes(searchTerm) ||
-          item.kelas.toLowerCase().includes(searchTerm) ||
-          item.hobi.some((h) => h.toLowerCase().includes(searchTerm))
-        );
-      });
-
-      displayResults(filteredResults);
-    });
-
-    function displayResults(results) {
-      searchResults.innerHTML = "";
-
-      if (results.length === 0) {
-        searchResults.innerHTML = "<li>No results found.</li>";
-        return;
-      }
-
-      results.forEach((result) => {
-        const listItem = document.createElement("li");
-        listItem.textContent = `${result.nama} - ${result.kelas}`;
-        searchResults.appendChild(listItem);
-      });
-    }
-
     const product = [
       {
         nama: "habib",
@@ -77,6 +49,45 @@
         hobi: [],
       },
     ];
+    searchInput.addEventListener("keyup", (e) => {
+      iValue = searchInput.value;
+
+      let filtered = product.filter((item) => {
+        return (
+          item.nama.toLowerCase().includes(iValue) ||
+          item.kelas.toLowerCase().includes(iValue) ||
+          item.hobi.some((h) => h.toLowerCase().includes(iValue))
+        );
+      });
+
+      display(filtered);
+    });
+
+    function display(results) {
+      let searchHtml = "";
+      if (results.length === 0) {
+        searchHtml = `
+        <div class="holder">
+          <p>Tidak Ada Data</p>
+        </div>
+        `;
+        output.innerHTML = searchHtml;
+      }
+
+      results.forEach((e) => {
+        let isHobi = e.hobi.length > 0 ? e.hobi : "Gaada Hobi";
+
+        searchHtml += `      
+        <div class="holder">
+            <p class="nama">Nama : ${e.nama}</p>
+            <p class="kelas">Kelas : ${e.kelas}</p>
+            <p class="hobi">Hobi : ${isHobi}</p>
+        </div>`;
+
+        output.innerHTML = searchHtml;
+      });
+    }
+
     let htmls = "";
 
     product.forEach((element) => {
