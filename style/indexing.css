@@ -508,7 +508,7 @@ body {
   height: 200px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  background-image: url("/src/bestSelling/guccibag.png");
+  background-size: contain;
   background-size: 60%;
   background-repeat: no-repeat;
   background-position: center;

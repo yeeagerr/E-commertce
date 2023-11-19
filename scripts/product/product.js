@@ -164,67 +164,79 @@ export const exploreProduct2 = [
 
 export const flashSale = [
   {
-    id: "G4M3P4D",
-    foto: "guccibag.png",
+    id: "K3YB04RD",
+    foto: "keyboardRGB.png",
+    nama: "AK-900 Wired Keyboard",
+    diskon: 17892188,
+    harga: 14807328,
+    rating: {
+      bintang: 4,
+      jumlah: 75,
+    },
+    keywords: ["gaming", "keyboard", "gamer", "rgb"],
+  },
+
+  {
+    id: "M0N170R",
+    foto: "g27cq4-500x5001.png",
+    nama: "IPS LCD Gaming Monitor",
+    diskon: 6169720,
+    harga: 5706991,
+    rating: {
+      bintang: 5,
+      jumlah: 99,
+    },
+    keywords: ["monitor", "monitor gaming", "gamer"],
+  },
+
+  {
+    id: "C0NS0LE",
+    foto: "g92-2-500x5001.png",
     nama: "HAVIT HV-G92 Gamepad",
-    diskon: 2505872,
-    harga: 1880496,
+    diskon: 2467888,
+    harga: 1850916,
     rating: {
       bintang: 5,
       jumlah: 88,
     },
-    keywords: ["gaming", "console", "gamer"],
+    keywords: ["console gaming", "console", "gamer"],
   },
 
   {
-    id: "GU55IDU",
-    foto: "guccibag.png",
-    nama: "Gucci duffle bag",
-    diskon: 18499680,
-    harga: 15249600,
+    id: "KUR51",
+    foto: "kursi.png",
+    nama: "S-Series Comfort Chair ",
+    diskon: 6169720,
+    harga: 4784112,
     rating: {
-      bintang: 4,
-      jumlah: 75,
+      bintang: 45,
+      jumlah: 66,
     },
-    keywords: ["fashion", "bag"],
+    keywords: ["kursi", "chair"],
   },
 
   {
-    id: "GU55IDU",
-    foto: "guccibag.png",
-    nama: "Gucci duffle bag",
-    diskon: 18499680,
-    harga: 15249600,
+    id: "L4P70P",
+    foto: "laptop.png",
+    nama: "ASUS FHD Gaming Laptop",
+    diskon: "",
+    harga: 10797010,
     rating: {
-      bintang: 4,
-      jumlah: 75,
+      bintang: 5,
+      jumlah: 125,
     },
-    keywords: ["fashion", "bag"],
+    keywords: ["electronic", "laptop gaming", "laptop"],
   },
-
   {
-    id: "GU55IDU",
-    foto: "guccibag.png",
-    nama: "Gucci duffle bag",
-    diskon: 18499680,
-    harga: 15249600,
+    id: "C4M3R4",
+    foto: "camera.png",
+    nama: "CANON EOS DSLR Camera",
+    diskon: "",
+    harga: 5736600,
     rating: {
       bintang: 4,
-      jumlah: 75,
+      jumlah: 95,
     },
-    keywords: ["fashion", "bag"],
-  },
-
-  {
-    id: "GU55IDU",
-    foto: "guccibag.png",
-    nama: "Gucci duffle bag",
-    diskon: 18499680,
-    harga: 15249600,
-    rating: {
-      bintang: 4,
-      jumlah: 75,
-    },
-    keywords: ["fashion", "bag"],
+    keywords: ["camera", "canon", "dslr"],
   },
 ];

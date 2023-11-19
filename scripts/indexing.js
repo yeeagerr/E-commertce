@@ -8,12 +8,14 @@ import {
 } from "./main/exploring.js";
 
 // generating
+import { fSale } from "./main/flashSale.js";
 import { generateBestSelling, AnimateProduct } from "./main/bestSelling.js";
 
 generateBestSelling();
 AnimateProduct();
 exploreSellTop();
 exploreSellBottom();
+fSale();
 
 // animating
 sliderAnimate();
