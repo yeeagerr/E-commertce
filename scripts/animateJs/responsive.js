@@ -1,4 +1,4 @@
-export function navbarRes() {
+function navbarRes() {
   const dropdown = document.querySelector(".dropdown");
   const threeline = document.querySelector(".three-line");
   const body = document.body;
@@ -6,9 +6,9 @@ export function navbarRes() {
   threeline.addEventListener("click", () => {
     dropdown.classList.toggle("dropanimate");
     body.classList.toggle("overflow-y");
+
+    console.log("hello");
   });
 }
-
-
 
 navbarRes();

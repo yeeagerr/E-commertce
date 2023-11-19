@@ -126,7 +126,6 @@ export function transition() {
     const color1 = document.querySelector(`.color1${anothercount}`);
     const color2 = document.querySelector(`.color2${anothercount}`);
     const imgHolder = document.querySelector(`.imgHolder${anothercount}`);
-    console.log(color2);
 
     color1.addEventListener("click", () => {
       color2.classList.remove("outlineTransition");

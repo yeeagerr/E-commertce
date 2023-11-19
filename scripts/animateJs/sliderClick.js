@@ -37,11 +37,11 @@ function slideKategori() {
   const leftBtn = document.querySelector(".left-kategori");
   const rightBtn = document.querySelector(".right-kategori");
 
-  leftBtn.addEventListener("click", () => {
+  leftBtn.addEventListener("click", function () {
     alert.style.display = "flex";
 
     setTimeout(() => {
-      location.reload();
+      alert.style.display = "none";
     }, 1500);
   });
 
@@ -49,7 +49,7 @@ function slideKategori() {
     alert.style.display = "flex";
 
     setTimeout(() => {
-      location.reload();
+      alert.style.display = "none";
     }, 1500);
   });
 }
