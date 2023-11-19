@@ -407,6 +407,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .moveToCart {
@@ -431,6 +432,13 @@ body {
 .wishlist-card {
   height: auto;
   margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  overflow: auto;
+}
+.jfy-scrooling,
+.scrooling-wc {
   display: flex;
   align-items: center;
   justify-content: start;
@@ -546,6 +554,7 @@ body {
 .jfy-title {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .this-month {
@@ -584,6 +593,10 @@ body {
   }
   .mnavbar {
     display: none;
+  }
+
+  .searching {
+    width: 170px;
   }
 
   .slider {
@@ -797,6 +810,10 @@ body {
 
   .arrival-product-bottom img {
     width: 100%;
+  }
+
+  .submit-code input {
+    width: 150px;
   }
 }
 

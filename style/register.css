@@ -217,6 +217,8 @@ body {
   width: 300px;
   height: 90%;
   width: 700px;
+  margin-right: 50px;
+
   background-image: url("../src/images/phonereg.png");
   background-size: 100%;
   background-repeat: no-repeat;
@@ -293,7 +295,7 @@ body {
   color: white;
 }
 
-.footer {
+.mfooter {
   background-color: black;
   height: 350px;
   display: flex;
@@ -411,7 +413,6 @@ body {
   justify-content: center;
   cursor: pointer;
 }
-
 @media only screen and (max-width: 435px) {
   .start-top {
     display: none;
@@ -428,6 +429,73 @@ body {
   }
   .navbar {
     display: none;
+  }
+
+  .searching {
+    width: 170px;
+  }
+
+  .register-container {
+    flex-direction: column;
+    height: 700px;
+  }
+
+  .left-reg {
+    width: 100%;
+    margin: 0px;
+  }
+
+  .right-reg {
+    padding-left: 40px;
+    width: 100%;
+  }
+
+  .mfooter {
+    height: 800px;
+    align-items: start;
+    padding-top: 50px;
+  }
+
+  .footer-content {
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+  }
+
+  .footer-content:nth-child(5) {
+    width: 90%;
+  }
+
+  .link-download {
+    width: 50%;
+  }
+
+  .link-to-download {
+    width: 100%;
+  }
+
+  .link-to-download img {
+    width: 100%;
+    object-fit: fill;
+  }
+
+  .qr-code {
+    width: 150px;
+  }
+
+  .footer-holder {
+    flex-wrap: wrap;
+  }
+
+  .footer-content:nth-child(1) img:nth-child(5) {
+    position: absolute;
+    margin: 0px;
+    margin-top: -30px;
+    margin-left: 170px;
+  }
+
+  .submit-code input {
+    width: 150px;
   }
 }
 
@@ -446,6 +514,50 @@ body {
   .navbar {
     display: none;
   }
+
+  .mfooter {
+    height: 800px;
+    align-items: start;
+    padding-top: 50px;
+  }
+
+  .footer-content {
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+  }
+
+  .footer-content:nth-child(5) {
+    width: 90%;
+  }
+
+  .link-download {
+    width: 50%;
+  }
+
+  .link-to-download {
+    width: 100%;
+  }
+
+  .link-to-download img {
+    width: 100%;
+    object-fit: fill;
+  }
+
+  .qr-code {
+    width: 150px;
+  }
+
+  .footer-holder {
+    flex-wrap: wrap;
+  }
+
+  .footer-content:nth-child(1) img:nth-child(5) {
+    position: absolute;
+    margin: 0px;
+    margin-top: -30px;
+    margin-left: 170px;
+  }
 }
 
 /* Small devices such as large phones (640px and up) */
@@ -463,6 +575,55 @@ body {
   }
   .navbar {
     display: none;
+  }
+
+  .mfooter {
+    height: 800px;
+    align-items: start;
+    padding-top: 50px;
+  }
+
+  .footer-content {
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+  }
+
+  .footer-content:nth-child(5) {
+    width: 90%;
+  }
+
+  .link-download {
+    width: 30%;
+  }
+
+  .link-to-download {
+    width: 100%;
+  }
+
+  .link-to-download img {
+    width: 100%;
+    object-fit: fill;
+  }
+
+  .qr-code {
+    width: 150px;
+  }
+
+  .footer-holder {
+    flex-wrap: wrap;
+  }
+
+  .new-right-bottom {
+    width: 100%;
+  }
+
+  .arrival-product-bottom {
+    width: 50%;
+  }
+
+  .arrival-product-bottom img {
+    width: 100%;
   }
 }
 
@@ -486,6 +647,43 @@ body {
   .navres {
     display: none;
   }
+
+  .mfooter {
+    height: 800px;
+    align-items: start;
+    padding-top: 50px;
+  }
+
+  .footer-content {
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+  }
+
+  .footer-content:nth-child(5) {
+    width: 90%;
+  }
+
+  .link-download {
+    width: 30%;
+  }
+
+  .link-to-download {
+    width: 100%;
+  }
+
+  .link-to-download img {
+    width: 100%;
+    object-fit: fill;
+  }
+
+  .qr-code {
+    width: 150px;
+  }
+
+  .footer-holder {
+    flex-wrap: wrap;
+  }
 }
 
 /* Large devices such as laptops (1024px and up) */
@@ -508,6 +706,80 @@ body {
   .navres {
     display: none;
   }
+
+  .mfooter {
+    height: 300px;
+    align-items: start;
+    padding-top: 50px;
+  }
+
+  .footer-content {
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+  }
+
+  .footer-content:nth-child(5) {
+    width: 20%;
+  }
+
+  .source-download {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .qr-code {
+    height: 100%;
+    width: 100px;
+  }
+
+  .link-download {
+    width: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .link-to-download {
+    height: 45%;
+  }
+
+  .link-to-download img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .social-media-icon img,
+  .qr-code img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+  }
+
+  .social-media {
+    margin-top: 15px;
+    width: 100%;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sosial-media-icon {
+    width: 30px;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .footer-holder {
+    flex-wrap: wrap;
+  }
 }
 
 /* Largest devices such as desktops (1280px and up) */
@@ -529,5 +801,79 @@ body {
 
   .navres {
     display: none;
+  }
+
+  .mfooter {
+    height: 300px;
+    align-items: start;
+    padding-top: 50px;
+  }
+
+  .footer-content {
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+  }
+
+  .footer-content:nth-child(5) {
+    width: 20%;
+  }
+
+  .source-download {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .qr-code {
+    height: 100%;
+    width: 100px;
+  }
+
+  .link-download {
+    width: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .link-to-download {
+    height: 45%;
+  }
+
+  .link-to-download img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .social-media-icon img,
+  .qr-code img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+  }
+
+  .social-media {
+    margin-top: 15px;
+    width: 100%;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sosial-media-icon {
+    width: 30px;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .footer-holder {
+    flex-wrap: wrap;
   }
 }
