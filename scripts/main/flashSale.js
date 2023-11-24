@@ -1,6 +1,7 @@
 import { flashSale } from "../product/product.js";
 import { addComa } from "../utils/money.js";
 import { clickSlider } from "../animateJs/sliderClick.js";
+import { AddToCart } from "../cartSummary/cart.js";
 let counter2 = 0;
 
 export function fSale() {
@@ -22,9 +23,9 @@ export function fSale() {
 
     generatingFs += `
     <div class="fs-sell-card counting${counter}">
-    <div class="fs-sell-top" style="background-image: url('/src/flashSale/${element.foto}');">
+    <div class="fs-sell-top fsstop-${element.fsPart}" style="background-image: url('/src/flashSale/${element.foto}');">
       <div class="overlay-top">
-        <div class="action-overlay aksi-heart1">
+        <div class="action-overlay aksi-hearts-${counter}">
           <i class="fa-regular fa-heart hearticon"></i>
         </div>
         <div class="action-overlay aksi-lihat">
@@ -32,7 +33,7 @@ export function fSale() {
         </div>
       </div>
 
-      <div class="overlay-bottom overlayHolder1">
+      <div class="overlay-bottom overlayHolder-${counter}" data-id-product="${element.id}">
         <p>Tambah Kan Ke keranjang</p>
       </div>
     </div>
@@ -70,5 +71,45 @@ export function fSale() {
   rightBtn.addEventListener("click", () => {
     counter2 > cardSell.length - 2 ? (counter2 = 0) : counter2++;
     clickSlider(counter2);
+  });
+}
+
+export function fSaleHover() {
+  let count = 0;
+
+  flashSale.forEach((card) => {
+    const fsTop = document.querySelector(`.fsstop-${card.fsPart}`);
+
+    count++;
+    const hearticon = document.querySelector(`.aksi-hearts-${card.fsPart}`);
+    const overlayHolder = document.querySelector(
+      `.overlayHolder-${card.fsPart}`
+    );
+
+    hearticon.addEventListener("click", () => {
+      hearticon.classList.toggle("aksianimate");
+      let aply = hearticon.classList.contains("aksianimate");
+      localStorage.setItem(`aksianimate-${card.fsPart}`, aply);
+    });
+
+    fsTop.addEventListener("mouseover", () => {
+      overlayHolder.classList.add("animate-ovrbottom");
+    });
+
+    fsTop.addEventListener("mouseout", () => {
+      overlayHolder.classList.remove("animate-ovrbottom");
+    });
+
+    overlayHolder.addEventListener("click", () => {
+      const productId = overlayHolder.dataset.idProduct;
+      AddToCart(productId);
+    });
+
+    let getLocal = localStorage.getItem(`aksianimate-${count}`);
+    if (getLocal === "true") {
+      hearticon.classList.add("aksianimate");
+    } else if (getLocal === "false") {
+      hearticon.classList.remove("aksianimate");
+    }
   });
 }

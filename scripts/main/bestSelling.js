@@ -1,5 +1,6 @@
 import { bestSell } from "../product/product.js";
 import { addComa } from "../utils/money.js";
+import { AddToCart } from "../cartSummary/cart.js";
 
 export function generateBestSelling() {
   let bsHtml = "";
@@ -15,7 +16,6 @@ export function generateBestSelling() {
     } else {
       rpText = "Rp. ";
     }
-    console.log(`generate : ${counter}`);
 
     bsHtml += `
     <div class="best-sell-card transition-${bsproduk.bsPart}">
@@ -30,7 +30,7 @@ export function generateBestSelling() {
                 </div>
                 </div>
 
-                <div class="overlay-bottom overlayHolder-${bsproduk.bsPart}">
+                <div class="overlay-bottom overlayHolder-${bsproduk.bsPart}" data-product-id="${bsproduk.id}">
                 <p>Tambah Kan Ke keranjang</p>
                 </div>
             </div>
@@ -68,7 +68,7 @@ export function AnimateProduct() {
       // local storage SET
       const isaksianimate = aksiheart.classList.contains("aksianimate");
       // Use local storage to store the state
-      localStorage.setItem(`aksianimate-${element.bsPart}`, isAksianimate);
+      localStorage.setItem(`aksianimate-${element.bsPart}`, isaksianimate);
     });
 
     domBs.addEventListener("mouseover", () => {
@@ -80,7 +80,8 @@ export function AnimateProduct() {
     });
 
     overlayBottom.addEventListener("click", () => {
-      alert(`added : bagian ${element.bsPart}`);
+      const productId = overlayBottom.dataset.productId;
+      AddToCart(productId);
     });
 
     //local storage get from set

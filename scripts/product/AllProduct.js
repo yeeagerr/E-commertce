@@ -1,4 +1,16 @@
-export const bestSell = [
+export function getProductId(productId) {
+  let matchingProduct;
+
+  product.forEach((products) => {
+    if (productId === products.id) {
+      matchingProduct = products;
+    }
+  });
+
+  return matchingProduct;
+}
+
+const product = [
   {
     id: "GU55IDU",
     foto: "guccibag.png",
@@ -15,7 +27,7 @@ export const bestSell = [
 
   {
     id: "TH3C047",
-    foto: "../../src/bestSelling/672462_ZAH9D_5626_002_100_0000_Light-The-North-Face-x-Gucci-coat 1.png",
+    foto: "672462_ZAH9D_5626_002_100_0000_Light-The-North-Face-x-Gucci-coat.png",
     nama: "The North Coat",
     diskon: 5741280,
     harga: 4146480,
@@ -29,7 +41,7 @@ export const bestSell = [
 
   {
     id: "B00K53LF",
-    foto: "../../src/bestSelling/sam-moghadam-khamseh-L_7MQsHl_aU-unsplash 1.png",
+    foto: "sam-moghadam-khamseh-L_7MQsHl_aU-unsplash 1.png",
     nama: "Small BookSelf",
     diskon: "",
     harga: 5741280,
@@ -40,9 +52,7 @@ export const bestSell = [
     keywords: ["fashion", "bag"],
     bsPart: 3,
   },
-];
 
-export const exploreProduct1 = [
   {
     id: "D06F00D",
     foto: "dogfood.png",
@@ -70,19 +80,6 @@ export const exploreProduct1 = [
   },
 
   {
-    id: "L4P70P",
-    foto: "laptop.png",
-    nama: "ASUS FHD Gaming Laptop",
-    harga: 11154500,
-    rating: {
-      bintang: 5,
-      jumlah: 325,
-    },
-    keywords: ["asus", "laptop", "laptop gaming"],
-    bsPart: 3,
-  },
-
-  {
     id: "F4C3W45H",
     foto: "facewash.png",
     nama: "Curology Product Set",
@@ -94,9 +91,7 @@ export const exploreProduct1 = [
     keywords: ["face wash", "face"],
     bsPart: 4,
   },
-];
 
-export const exploreProduct2 = [
   {
     id: "C4RK1D",
     foto: "electricCarWhite.png",
@@ -160,9 +155,7 @@ export const exploreProduct2 = [
     keywords: ["face wash", "face"],
     bsPart: 4,
   },
-];
 
-export const flashSale = [
   {
     id: "K3YB04RD",
     foto: "keyboardRGB.png",
@@ -231,18 +224,5 @@ export const flashSale = [
     },
     keywords: ["electronic", "laptop gaming", "laptop"],
     fsPart: 5,
-  },
-  {
-    id: "C4N0N",
-    foto: "camera.png",
-    nama: "CANON EOS DSLR Camera",
-    diskon: "",
-    harga: 5736600,
-    rating: {
-      bintang: 4,
-      jumlah: 95,
-    },
-    keywords: ["camera", "canon", "dslr"],
-    fsPart: 6,
   },
 ];

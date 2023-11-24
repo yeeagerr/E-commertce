@@ -149,10 +149,16 @@
           </div>
 
           <div class="cart-items-container">
-            <div class="cart-items">
+            <div class="cart-item-overflow">
+              <!-- <div class="cart-items">
               <div class="cart-produk">
-                <div class="produk-img"></div>
-                <p>LCD Monitor</p>
+                <div
+                  class="produk-img"
+                  style="
+                    background-image: url('../src/images/652e82cd70aa6522dd785109a455904c.png');
+                  "
+                ></div>
+                <p class="name-product">LCD Monitor duffle bag</p>
               </div>
               <div class="harga">
                 <p>Rp. 10,202,952</p>
@@ -163,44 +169,14 @@
               <div class="harga">
                 <p>Rp. 10,202,952</p>
               </div>
-            </div>
-
-            <div class="cart-items">
-              <div class="cart-produk">
-                <div class="produk-img"></div>
-                <p>LCD Monitor</p>
-              </div>
-              <div class="harga">
-                <p>Rp. 10,202,952</p>
-              </div>
-              <div class="harga">
-                <p>01</p>
-              </div>
-              <div class="harga">
-                <p>Rp. 10,202,952</p>
-              </div>
-            </div>
-
-            <div class="cart-items">
-              <div class="cart-produk">
-                <div class="produk-img"></div>
-                <p>LCD Monitor</p>
-              </div>
-              <div class="harga">
-                <p>Rp. 10,202,952</p>
-              </div>
-              <div class="harga">
-                <p>01</p>
-              </div>
-              <div class="harga">
-                <p>Rp. 10,202,952</p>
-              </div>
+            </div> -->
             </div>
           </div>
 
           <div class="cart-btn">
             <button>Return To Shop</button>
-            <button>Update Cart</button>
+            <button id="save" class="change-quantity-closed">Finished</button>
+            <button id="update">Update Cart</button>
           </div>
         </div>
       </div>
@@ -219,18 +195,18 @@
           <div class="total-content">
             <div class="total-box-card">
               <p>Total Murni:</p>
-              <p>Rp. 1.000.000</p>
+              <p id="totalMurni">Rp. 1.000.000</p>
             </div>
             <div class="total-box-card">
               <p>Ongkir:</p>
-              <p>Rp. 0</p>
+              <p id="ongkir">Rp. 0</p>
             </div>
             <div class="total-box-card">
               <p>Total Keseluruhan:</p>
-              <p>Rp. 1.000.000</p>
+              <p id="total">Rp. 1.000.000</p>
             </div>
 
-            <button>Proses Pemesanan</button>
+            <button id="proses-to">Proses Pemesanan</button>
           </div>
         </div>
       </div>
@@ -317,4 +293,5 @@
   </body>
 
   <script src="../scripts/animateJs/iconRes.js" type="module"></script>
+  <script src="../scripts/cartSummary/runCart.js" type="module"></script>
 </html>

@@ -293,6 +293,19 @@ body {
   overflow: auto;
 }
 
+.cart-items-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.cart-items-container::-webkit-scrollbar-thumb {
+  background-color: #3498db;
+  border-radius: 4px;
+}
+
+.cart-items-container::-webkit-scrollbar-track {
+  background-color: #ecf0f1;
+}
+
 .cart-items,
 .cart-title {
   width: 100%;
@@ -336,17 +349,82 @@ body {
 .produk-img {
   height: 40px;
   width: 150px;
-  background-image: url("../src/flashSale/TVmonitor.png");
   background-position: center;
   background-size: 90%;
   background-repeat: no-repeat;
   margin-right: 10px;
 }
 
+.name-product {
+  width: 500px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .harga {
   width: 150px;
   white-space: nowrap;
   margin-left: 10px;
+}
+
+.jumlah-js {
+  display: flex;
+  align-items: center;
+}
+
+.qty-container {
+  display: flex;
+  align-items: center;
+  display: none;
+}
+
+.change-quantity {
+  width: 40px;
+  height: 30px;
+}
+
+.change-quantity-closed {
+  display: none;
+}
+
+.change-quantity-show {
+  display: block;
+}
+
+.change-quantity-show2 {
+  display: flex;
+}
+
+.action-pick {
+  display: none;
+}
+
+.qty-container button {
+  background-color: #007bff;
+}
+
+.qty-container button,
+.action {
+  width: 55px;
+  height: 35px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.action:hover {
+  opacity: 0.7;
+}
+
+.updating {
+  background-color: #28a745;
+}
+
+.deleting {
+  background-color: #dc3545;
 }
 
 .cart-btn {

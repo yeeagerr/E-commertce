@@ -1,5 +1,6 @@
 import { exploreProduct1, exploreProduct2 } from "../product/product.js";
 import { addComa } from "../utils/money.js";
+import { AddToCart } from "../cartSummary/cart.js";
 
 export function exploreSellTop() {
   let exploreHTML = "";
@@ -25,8 +26,8 @@ export function exploreSellTop() {
           </div>
         </div>
 
-        <div class="overlay-bottom overlayHolder2${counter}">
-          <p>Tambah Kan Ke keranjang</p>
+        <div class="overlay-bottom overlayHolder2${counter}" data-product-id="${expProduk.id}">
+          <p class="js-sukses-${counter}">Tambah Kan Ke keranjang</p>
         </div>
       </div>
       <img src="src/exploreimg/${expProduk.foto}" alt="Gucci Bag" />
@@ -67,7 +68,7 @@ export function exploreSellBottom() {
           </div>
         </div>
 
-        <div class="overlay-bottom overlayHolder3${element.bsPart}">
+        <div class="overlay-bottom overlayHolder3${element.bsPart}" data-product-id="${element.id}">
           <p>Tambah Kan Ke keranjang</p>
         </div>
       </div>
@@ -94,6 +95,7 @@ export function exploreSellBottom() {
 }
 
 export function transition() {
+  //top
   let count = 0;
   let counter2 = 4;
   exploreProduct1.forEach((element) => {
@@ -103,6 +105,7 @@ export function transition() {
 
     const parent = document.querySelector(`.transition-count${element.bsPart}`);
     const overbtm = document.querySelector(`.overlayHolder2${count}`);
+    const suksesText = document.querySelector(`.js-sukses-${count}`);
     let heartbtn = document.querySelector(`.aksi-heart-${counter2}`);
 
     heartbtn.addEventListener("click", () => {
@@ -116,8 +119,19 @@ export function transition() {
     parent.addEventListener("mouseout", () => {
       overbtm.classList.remove("animate-ovrbottom");
     });
+
+    overbtm.addEventListener("click", () => {
+      const overTopId = overbtm.dataset.productId;
+      AddToCart(overTopId);
+      suksesText.innerHTML = "Produk Berhasil Di Tambah";
+
+      setTimeout(() => {
+        suksesText.innerHTML = "Tambahkan Ke Keranjang";
+      }, 600);
+    });
   });
 
+  //bottom
   let anothercount = 0;
   exploreProduct2.forEach((element2) => {
     anothercount++;
@@ -156,6 +170,11 @@ export function transition() {
 
     parent2.addEventListener("mouseout", () => {
       overbtm2.classList.remove("animate-ovrbottom");
+    });
+
+    overbtm2.addEventListener("click", () => {
+      const productId = overbtm2.dataset.productId;
+      AddToCart(productId);
     });
   });
 }
