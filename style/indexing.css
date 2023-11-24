@@ -553,6 +553,11 @@ body {
   flex-direction: column;
   cursor: pointer;
   margin-bottom: 10px;
+  transition: 0.15s;
+}
+
+.box-kategori:hover {
+  transform: scale(1.1, 1.1);
 }
 
 .box-kategori img {

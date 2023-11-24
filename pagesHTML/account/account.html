@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CheckOut</title>
-    <link rel="stylesheet" href="../style/checkout.css" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../style/account.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -29,7 +29,7 @@
       <h1>LOGO</h1>
 
       <div class="nav-list">
-        <p><a href="../indexing.html">Beranda</a></p>
+        <p><a href="">Beranda</a></p>
         <p><a href="">Hubungi</a></p>
         <p><a href="">Tentang</a></p>
         <p><a href="">Registrasi</a></p>
@@ -50,7 +50,7 @@
 
         <div class="user-icon">
           <img
-            src="../src/icon/user.png"
+            src="../../src/icon/user.png"
             class="user-photo"
             alt="user default "
           />
@@ -58,7 +58,7 @@
             <div class="drop-user-content">
               <img
                 class="user-photo-dropdown"
-                src="../src/icon/user2.png"
+                src="../../src/icon/user2.png"
                 alt="user setting"
               />
               <p>Manage My Account</p>
@@ -66,7 +66,7 @@
             <div class="drop-user-content">
               <img
                 class="user-photo-dropdown"
-                src="../src/icon/icon-mallbag.png"
+                src="../../src/icon/icon-mallbag.png"
                 alt="user setting"
               />
               <p>Keranjang Saya</p>
@@ -74,7 +74,7 @@
             <div class="drop-user-content">
               <img
                 class="user-photo-dropdown"
-                src="../src/icon/Icon-logout.png"
+                src="../../src/icon/Icon-logout.png"
                 alt="user setting"
               />
               <p>Logout</p>
@@ -127,116 +127,96 @@
       </div>
     </div>
 
-    <div class="checkout-container">
-      <div class="checkout-content-left">
-        <h1>Billing Details</h1>
-
-        <form class="form-checkout" action="" method="post">
-          <div class="input-sect">
-            <p>Nama Panjang</p>
-            <input type="text" />
-          </div>
-
-          <div class="input-sect">
-            <p>Email Address</p>
-            <input type="text" name="nama" />
-          </div>
-
-          <div class="input-sect">
-            <p>Alamat Rumah</p>
-            <input type="text" />
-          </div>
-
-          <div class="input-sect">
-            <p>Apartement, Lantai, Kamar, dll (opsional)</p>
-            <input type="text" />
-          </div>
-
-          <div class="input-sect">
-            <p>Kota</p>
-            <input type="text" />
-          </div>
-
-          <div class="input-sect">
-            <p>Nomor Handphone</p>
-            <input type="text" />
-          </div>
-          <!-- VIA BANK OR DIGITAL CURRENCY -->
-          <input style="display: none" type="radio" name="pick" id="bank" />
-          <!-- CASH ON DELIVERY -->
-          <input style="display: none" type="radio" name="pick" id="cod" />
-
-          <input type="submit" id="submitbtn" style="display: none" />
-        </form>
+    <div class="welcoming-title">
+      <div>
+        <p>Selamat Datang! <span>Muhammad Habib Abdillah</span></p>
       </div>
+    </div>
 
-      <div class="right-side">
-        <div class="checkout-content-right">
-          <div class="product-checkout">
-            <!-- <div class="checkout-line-holder">
-              <div class="product-sell-checkout">
-                <div class="image-holder">
-                  <img
-                    src="../src/exploreimg/ps5red.png"
-                    alt="PS5 RED CONTROLLER"
-                  />
-                </div>
-                <p class="text-overflow">PS5 CONTROLLER RED</p>
-              </div>
+    <div class="account-setting-container">
+      <div class="left-part">
+        <div class="manage-my-acc">
+          <p>Atur Akun Saya</p>
 
-              <p>Rp. 1.000.000</p>
-            </div> -->
-          </div>
-
-          <div class="box-total">
-            <p>Subtotal:</p>
-            <p id="subtotal">Rp. 11.000.000</p>
-          </div>
-
-          <div class="box-total">
-            <p>Ongkir:</p>
-            <p id="ongkir">Gratis Ongkir</p>
-          </div>
-
-          <div class="box-total">
-            <p>Total:</p>
-            <p id="total">Rp. 11.000.000</p>
-          </div>
-
-          <div class="payment-pick">
-            <div class="bank-pick">
-              <div class="choose-it">
-                <label class="radio-label radio-bank" for="bank"></label>
-                <p>Bank</p>
-              </div>
-              <div class="bank-img-method">
-                <div class="img-method-holder">
-                  <img src="../src/icon/Logo_dana_blue.svg.png" alt="" />
-                </div>
-                <div class="img-method-holder">
-                  <img src="../src/icon/bank-bca.png" alt="" />
-                </div>
-                <div class="img-method-holder">
-                  <img src="../src/icon/bank-bri.png" alt="" />
-                </div>
-              </div>
-            </div>
-
-            <div class="choose-it2">
-              <label class="radio-label radio-cod" for="cod"></label>
-              <p>Cash On Delivery (COD)</p>
-            </div>
+          <div class="list-manage">
+            <p class="selected">Profil Saya</p>
+            <p>Buku Alamat</p>
+            <p>Pengaturan Pembayaran</p>
           </div>
         </div>
 
-        <div class="confirm-part">
-          <div class="kupon-confirm">
-            <input placeholder="Kode Kupon" type="text" />
-            <button>Apply Kupon</button>
+        <div class="manage-my-acc">
+          <p>Orderan Saya</p>
+
+          <div class="list-manage">
+            <p>Lacak Produk</p>
+            <p>Pengembalian Barang</p>
+            <p>Pembatalan Barang</p>
+          </div>
+        </div>
+      </div>
+      <div class="right-part">
+        <h2>Edit Profil Mu</h2>
+        <form action="" method="post">
+          <div class="nama-part">
+            <div class="depan">
+              <p>Nama Depan</p>
+              <input name="namaDepan" type="text" placeholder="John" />
+            </div>
+
+            <div class="belakang">
+              <p>Nama Akhir</p>
+              <input name="namaBelakang" type="text" placeholder="Doe" />
+            </div>
           </div>
 
-          <button class="mesanbtn">Memesan Order</button>
-        </div>
+          <div class="nama-part">
+            <div class="depan">
+              <p>Email</p>
+              <input
+                type="email"
+                name="email"
+                placeholder="johndoe@contoh.com"
+              />
+            </div>
+
+            <div class="belakang">
+              <p>Alamat</p>
+              <input
+                type="text"
+                name="alamat"
+                placeholder="Indonesia, Batam Bengkong...."
+              />
+            </div>
+          </div>
+
+          <div class="password-part">
+            <p>Ganti Password</p>
+            <input
+              type="password"
+              placeholder="Password Saat Ini"
+              autocomplete="off"
+              name="password"
+            />
+            <input
+              placeholder="Password Baru"
+              type="password"
+              autocomplete="off"
+              name="newPassword"
+            />
+            <input
+              placeholder="Konfirmasi Password Baru"
+              type="password"
+              autocomplete="off"
+              name="validationPw"
+            />
+          </div>
+
+          <div class="btnForm">
+            <button>Batal</button>
+            <button>Simpan Perubahan</button>
+          </div>
+        </form>
       </div>
     </div>
 
@@ -248,7 +228,7 @@
           <p>Dapatkan 10% diskon belanja pertamamu</p>
           <div class="submit-code">
             <input type="text" placeholder="Masukan Email Kamu" />
-            <img src="../src/icon/Vector.png" alt="submit-vector" />
+            <img src="../../src/icon/Vector.png" alt="submit-vector" />
           </div>
         </div>
 
@@ -279,18 +259,18 @@
             <p>Aplikasi masih belum ada</p>
             <div class="source-download">
               <div class="qr-code">
-                <img src="../src/images/Qr Code.png" alt="qr-code" />
+                <img src="../../src/images/Qr Code.png" alt="qr-code" />
               </div>
               <div class="link-download">
                 <div class="link-to-download">
                   <img
-                    src="../src/images/png-transparent-google-play-store-logo-google-play-app-store-android-wallets-text-label-logo.png"
+                    src="../../src/images/png-transparent-google-play-store-logo-google-play-app-store-android-wallets-text-label-logo.png"
                     alt="Playstore"
                   />
                 </div>
                 <div class="link-to-download">
                   <img
-                    src="../src/images/download-appstore.png"
+                    src="../../src/images/download-appstore.png"
                     alt="Appstore"
                   />
                 </div>
@@ -299,17 +279,23 @@
 
             <div class="social-media">
               <div class="sosial-media-icon">
-                <img src="../src/icon/Icon-Facebook.png" alt="Icon-Facebook" />
+                <img
+                  src="../../src/icon/Icon-Facebook.png"
+                  alt="Icon-Facebook"
+                />
               </div>
               <div class="sosial-media-icon">
-                <img src="../src/icon/Icon-Twitter.png" alt="Icon-Twitter" />
-              </div>
-              <div class="sosial-media-icon">
-                <img src="../src/icon/Icon-Linkedin.png" alt="Icon-Linkedin" />
+                <img src="../../src/icon/Icon-Twitter.png" alt="Icon-Twitter" />
               </div>
               <div class="sosial-media-icon">
                 <img
-                  src="../src/icon/icon-instagram.png"
+                  src="../../src/icon/Icon-Linkedin.png"
+                  alt="Icon-Linkedin"
+                />
+              </div>
+              <div class="sosial-media-icon">
+                <img
+                  src="../../src/icon/icon-instagram.png"
                   alt="icon-instagram"
                 />
               </div>
@@ -319,8 +305,5 @@
       </div>
     </div>
   </body>
-
-  <script type="module" src="../scripts/animateJs/iconRes.js"></script>
-  <script src="../scripts/animateJs/radiobtn.js"></script>
-  <script type="module" src="../scripts/main/checkOut.js"></script>
+  <script src="../../scripts/animateJs/iconRes.js"></script>
 </html>

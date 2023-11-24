@@ -30,14 +30,14 @@ export function exploreSellTop() {
           <p class="js-sukses-${counter}">Tambah Kan Ke keranjang</p>
         </div>
       </div>
-      <img src="src/exploreimg/${expProduk.foto}" alt="Gucci Bag" />
+      <img src="../src/exploreimg/${expProduk.foto}" alt="Gucci Bag" />
     </div>
     <p>${expProduk.nama}</p>
     <div class="pricingAndRate">
       <p>Rp. ${harga}</p>
 
       <div class="mrate">
-        <img src="src/rating/rating-${expProduk.rating.bintang}.png" alt="" />
+        <img src="../src/rating/rating-${expProduk.rating.bintang}.png" alt="" />
         <p>( ${expProduk.rating.jumlah} )</p>
       </div>
     </div>
@@ -53,8 +53,11 @@ export function exploreSellBottom() {
 
   let counter = 0;
   exploreProduct2.forEach((element) => {
+    let warna = "";
     let formatMoney = addComa(element.harga);
+
     counter++;
+
     expHTML += `
     <div class="best-sell-card transition-count2${element.bsPart}">
     <div class="image-product">
@@ -68,18 +71,18 @@ export function exploreSellBottom() {
           </div>
         </div>
 
-        <div class="overlay-bottom overlayHolder3${element.bsPart}" data-product-id="${element.id}">
+        <div class="overlay-bottom overlayHolder3${element.bsPart}"  >
           <p>Tambah Kan Ke keranjang</p>
         </div>
       </div>
-      <img src="src/exploreimg/${element.foto}" alt="Gucci Bag" class="imgHolder${counter}"/>
+      <img src="../src/exploreimg/${element.foto}" alt="Gucci Bag" class="imgHolder${counter} color1"/>
     </div>
     <p>${element.nama}</p>
     <div class="pricingAndRate">
       <p>Rp. ${formatMoney}</p>
 
       <div class="mrate">
-        <img src="src/rating/rating-${element.rating.bintang}.png" alt="" />
+        <img src="../src/rating/rating-${element.rating.bintang}.png" alt="" />
         <p>(${element.rating.jumlah})</p>
       </div>
     </div>
@@ -106,6 +109,7 @@ export function transition() {
     const parent = document.querySelector(`.transition-count${element.bsPart}`);
     const overbtm = document.querySelector(`.overlayHolder2${count}`);
     const suksesText = document.querySelector(`.js-sukses-${count}`);
+
     let heartbtn = document.querySelector(`.aksi-heart-${counter2}`);
 
     heartbtn.addEventListener("click", () => {
@@ -133,6 +137,7 @@ export function transition() {
 
   //bottom
   let anothercount = 0;
+
   exploreProduct2.forEach((element2) => {
     anothercount++;
 
@@ -140,29 +145,35 @@ export function transition() {
     const color1 = document.querySelector(`.color1${anothercount}`);
     const color2 = document.querySelector(`.color2${anothercount}`);
     const imgHolder = document.querySelector(`.imgHolder${anothercount}`);
-
-    color1.addEventListener("click", () => {
-      color2.classList.remove("outlineTransition");
-      color1.classList.add("outlineTransition");
-      imgHolder.setAttribute("src", `src/exploreimg/${element2.foto}`);
-    });
-
-    color2.addEventListener("click", () => {
-      color2.classList.add("outlineTransition");
-      color1.classList.remove("outlineTransition");
-      imgHolder.setAttribute("src", `src/exploreimg/${element2.foto2}`);
-    });
-
-    heartbtn.addEventListener("click", () => {
-      heartbtn.classList.toggle("aksianimate");
-    });
-
     const parent2 = document.querySelector(
       `.transition-count2${element2.bsPart}`
     );
     const overbtm2 = document.querySelector(
       `.overlayHolder3${element2.bsPart}`
     );
+    let dataTambah = overbtm2.dataset.tambahan;
+
+    color1.addEventListener("click", () => {
+      color2.classList.remove("outlineTransition");
+      color1.classList.add("outlineTransition");
+      imgHolder.setAttribute("src", `src/exploreimg/${element2.foto}`);
+      imgHolder.classList.add("color1");
+      imgHolder.classList.remove("color2");
+      dataTambah = "foto";
+    });
+
+    color2.addEventListener("click", () => {
+      color2.classList.add("outlineTransition");
+      color1.classList.remove("outlineTransition");
+      imgHolder.setAttribute("src", `src/exploreimg/${element2.foto2}`);
+      imgHolder.classList.remove("color1");
+      imgHolder.classList.add("color2");
+      dataTambah = "foto2";
+    });
+
+    heartbtn.addEventListener("click", () => {
+      heartbtn.classList.toggle("aksianimate");
+    });
 
     parent2.addEventListener("mouseover", () => {
       overbtm2.classList.add("animate-ovrbottom");
@@ -173,8 +184,19 @@ export function transition() {
     });
 
     overbtm2.addEventListener("click", () => {
-      const productId = overbtm2.dataset.productId;
-      AddToCart(productId);
+      let productId = overbtm2.dataset.productId;
+
+      let pickWarna = "";
+
+      if (imgHolder.classList.contains("color1")) {
+        pickWarna = element2.foto;
+        productId = element2.id;
+      } else if (imgHolder.classList.contains("color2")) {
+        pickWarna = element2.foto2;
+        productId = element2.id2;
+      }
+
+      AddToCart(productId, pickWarna);
     });
   });
 }

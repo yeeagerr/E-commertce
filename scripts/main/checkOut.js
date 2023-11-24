@@ -13,10 +13,10 @@ function checkoutMain() {
   let total = 0;
 
   cart.forEach((cartItem) => {
-    console.log(cartItem);
-
     let cartId = cartItem.productId;
     let matching = getProductId(cartId);
+
+    let foto = cartItem.extraData ? cartItem.extraData : matching.foto;
 
     if (cartItem.quantity <= 0) {
       //defaul nya 0
@@ -35,7 +35,7 @@ function checkoutMain() {
     <p style="margin-right: 10px;">${quantityHolder}x</p>
       <div class="image-holder">
         <img
-          src="../src/productImg/${matching.foto}"
+          src="../src/productImg/${foto}"
           alt="${matching.id}"
         />
       </div>

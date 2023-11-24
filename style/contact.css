@@ -133,6 +133,12 @@ body {
   border-bottom: solid rgba(172, 160, 160, 0.5) 1px;
 }
 
+.mnavbar {
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
 .three-line {
   height: 40px;
   width: 50px;

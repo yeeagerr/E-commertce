@@ -14,11 +14,15 @@ export function generateCartHtml() {
     let cartId = cartItem.productId;
     let matchProductId = getProductId(cartId);
 
+    let idSort =
+      cartId === matchProductId.id2 ? matchProductId.id2 : matchProductId.id;
+
     const harga = addComa(matchProductId.harga);
+
+    let foto = cartItem.extraData ? cartItem.extraData : matchProductId.foto;
 
     if (cartItem.quantity <= 0) {
       //defaul nya 0
-      quantityHolder = 0;
     } else if (cartItem.quantity >= 10) {
       quantityHolder = 10;
     } else {
@@ -33,7 +37,7 @@ export function generateCartHtml() {
       <div
         class="produk-img"
         style="
-          background-image: url('../src/productImg/${matchProductId.foto}');
+          background-image: url('../src/productImg/${foto}');
         "
       ></div>
       <p class="name-product">${matchProductId.nama}</p>
@@ -45,18 +49,14 @@ export function generateCartHtml() {
       <p class="numberQuantity">${quantityHolder}</p>
       <div class="action-pick js-pick-${counter}">
       <button class="action updating updating-js">Ubah</button>
-      <button data-product-id="${
-        matchProductId.id
-      }" class="action deleting">Hapus</button>
+      <button data-product-id="${idSort}" class="action deleting">Hapus</button>
       </div>
 
       <div class="qty-container${counter} qty-container">
         <input type="number" max="10" min="0" 
         style="text-align: center ;" class="change-quantity js-change-value${counter}" 
         value="${quantityHolder}"/>
-      <button class="save-action js-save-action-${counter}" data-product-id="${
-      matchProductId.id
-    }">Simpan</button>
+      <button class="save-action js-save-action-${counter}" data-product-id="${idSort}">Simpan</button>
       </div>
 
  
@@ -131,12 +131,12 @@ function showAction() {
       });
     });
 
+    //delete
     document.querySelectorAll(".deleting").forEach((btnDel) => {
-      const dataId = btnDel.dataset.productId;
+      let dataId = btnDel.dataset.productId;
+      count3++;
+      let cartCont = document.querySelector(`.js-cart-items-${count3}`);
       btnDel.addEventListener("click", () => {
-        count3++;
-        const cartCont = document.querySelector(`.js-cart-items-${count3}`);
-
         cartCont.remove();
         deleteCart(dataId);
       });
@@ -152,5 +152,5 @@ function showAction() {
 showAction();
 
 document.getElementById("proses-to").addEventListener("click", () => {
-  window.location.href = "../../pagesHTML/checkout.html";
+  window.location.href = "../../pagesHTML/checkout/checkout.html";
 });

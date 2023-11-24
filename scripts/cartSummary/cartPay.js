@@ -25,15 +25,11 @@ export function generatePayInfo() {
 
     ongkir =
       quantityTotal === 0 ? (ongkir = 0) : (ongkir = 14000 * quantityTotal);
-    console.log(cartItem.quantity);
   });
-  console.log(addComa(hargaTetap));
 
   totalHarga = hargaTetap * quantityTotal;
 
   total = totalHarga + ongkir;
-
-  console.log(quantityTotal);
 
   document.getElementById("totalMurni").innerHTML = `Rp. ${addComa(
     totalHarga

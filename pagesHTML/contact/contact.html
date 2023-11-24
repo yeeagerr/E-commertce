@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../style/account.css" />
+    <link rel="stylesheet" href="../../style/contact.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -47,40 +47,6 @@
           class="fa-solid fa-cart-shopping icon-extra"
           style="color: #000000"
         ></i>
-
-        <div class="user-icon">
-          <img
-            src="../src/icon/user.png"
-            class="user-photo"
-            alt="user default "
-          />
-          <div class="user-icon-dropdown">
-            <div class="drop-user-content">
-              <img
-                class="user-photo-dropdown"
-                src="../src/icon/user2.png"
-                alt="user setting"
-              />
-              <p>Manage My Account</p>
-            </div>
-            <div class="drop-user-content">
-              <img
-                class="user-photo-dropdown"
-                src="../src/icon/icon-mallbag.png"
-                alt="user setting"
-              />
-              <p>Keranjang Saya</p>
-            </div>
-            <div class="drop-user-content">
-              <img
-                class="user-photo-dropdown"
-                src="../src/icon/Icon-logout.png"
-                alt="user setting"
-              />
-              <p>Logout</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -127,94 +93,54 @@
       </div>
     </div>
 
-    <div class="welcoming-title">
-      <div>
-        <p>Selamat Datang! <span>Muhammad Habib Abdillah</span></p>
-      </div>
-    </div>
-
     <div class="account-setting-container">
       <div class="left-part">
-        <div class="manage-my-acc">
-          <p>Atur Akun Saya</p>
-
-          <div class="list-manage">
-            <p class="selected">Profil Saya</p>
-            <p>Buku Alamat</p>
-            <p>Pengaturan Pembayaran</p>
+        <div class="top">
+          <div class="top-title">
+            <img src="../../src/icon/icons-phone.png" alt="" />
+            <h2>Panggil Kami</h2>
           </div>
+          <p>Kami ada dalam 24/7 jam</p>
+          <p>Phone: +621231293000</p>
         </div>
+        <div class="line"></div>
 
-        <div class="manage-my-acc">
-          <p>Orderan Saya</p>
-
-          <div class="list-manage">
-            <p>Lacak Produk</p>
-            <p>Pengembalian Barang</p>
-            <p>Pembatalan Barang</p>
+        <div class="top">
+          <div class="top-title">
+            <img src="../../src/icon/icons-mail.png" alt="" />
+            <h2>Kirim Kepada Kami</h2>
           </div>
+          <p>
+            Isi form yang telah kami sediakan dan kami akan membalasnya dalam 24
+            Jam
+          </p>
+          <p>Gmail: nezseco@gmail.com</p>
+          <p>Gmail: heandsome083@gmail.com</p>
         </div>
       </div>
+
       <div class="right-part">
-        <h2>Edit Profil Mu</h2>
         <form action="" method="post">
-          <div class="nama-part">
-            <div class="depan">
-              <p>Nama Depan</p>
-              <input name="namaDepan" type="text" placeholder="John" />
-            </div>
-
-            <div class="belakang">
-              <p>Nama Akhir</p>
-              <input name="namaBelakang" type="text" placeholder="Doe" />
-            </div>
-          </div>
-
-          <div class="nama-part">
-            <div class="depan">
-              <p>Email</p>
-              <input
-                type="email"
-                name="email"
-                placeholder="johndoe@contoh.com"
-              />
-            </div>
-
-            <div class="belakang">
-              <p>Alamat</p>
-              <input
-                type="text"
-                name="alamat"
-                placeholder="Indonesia, Batam Bengkong...."
-              />
-            </div>
-          </div>
-
-          <div class="password-part">
-            <p>Ganti Password</p>
+          <div class="three-input-top">
+            <input type="text" placeholder="Nama Kamu" />
+            <input type="email" name="email" placeholder="Email Kamu" />
             <input
-              type="password"
-              placeholder="Password Saat Ini"
+              type="text"
+              name="nohp"
               autocomplete="off"
-              name="password"
-            />
-            <input
-              placeholder="Password Baru"
-              type="password"
-              autocomplete="off"
-              name="newPassword"
-            />
-            <input
-              placeholder="Konfirmasi Password Baru"
-              type="password"
-              autocomplete="off"
-              name="validationPw"
+              placeholder="Nomor Hp Kamu"
             />
           </div>
+
+          <textarea
+            class="keluhan"
+            placeholder="Pesan / Masukan Kamu"
+            type="text"
+          ></textarea>
 
           <div class="btnForm">
             <button>Batal</button>
-            <button>Simpan Perubahan</button>
+            <button>Kirim Pesan</button>
           </div>
         </form>
       </div>
@@ -228,7 +154,7 @@
           <p>Dapatkan 10% diskon belanja pertamamu</p>
           <div class="submit-code">
             <input type="text" placeholder="Masukan Email Kamu" />
-            <img src="../src/icon/Vector.png" alt="submit-vector" />
+            <img src="../../src/icon/Vector.png" alt="submit-vector" />
           </div>
         </div>
 
@@ -259,18 +185,18 @@
             <p>Aplikasi masih belum ada</p>
             <div class="source-download">
               <div class="qr-code">
-                <img src="../src/images/Qr Code.png" alt="qr-code" />
+                <img src="../../src/images/Qr Code.png" alt="qr-code" />
               </div>
               <div class="link-download">
                 <div class="link-to-download">
                   <img
-                    src="../src/images/png-transparent-google-play-store-logo-google-play-app-store-android-wallets-text-label-logo.png"
+                    src="../../src/images/png-transparent-google-play-store-logo-google-play-app-store-android-wallets-text-label-logo.png"
                     alt="Playstore"
                   />
                 </div>
                 <div class="link-to-download">
                   <img
-                    src="../src/images/download-appstore.png"
+                    src="../../src/images/download-appstore.png"
                     alt="Appstore"
                   />
                 </div>
@@ -279,17 +205,23 @@
 
             <div class="social-media">
               <div class="sosial-media-icon">
-                <img src="../src/icon/Icon-Facebook.png" alt="Icon-Facebook" />
+                <img
+                  src="../../src/icon/Icon-Facebook.png"
+                  alt="Icon-Facebook"
+                />
               </div>
               <div class="sosial-media-icon">
-                <img src="../src/icon/Icon-Twitter.png" alt="Icon-Twitter" />
-              </div>
-              <div class="sosial-media-icon">
-                <img src="../src/icon/Icon-Linkedin.png" alt="Icon-Linkedin" />
+                <img src="../../src/icon/Icon-Twitter.png" alt="Icon-Twitter" />
               </div>
               <div class="sosial-media-icon">
                 <img
-                  src="../src/icon/icon-instagram.png"
+                  src="../../src/icon/Icon-Linkedin.png"
+                  alt="Icon-Linkedin"
+                />
+              </div>
+              <div class="sosial-media-icon">
+                <img
+                  src="../../src/icon/icon-instagram.png"
                   alt="icon-instagram"
                 />
               </div>
@@ -299,5 +231,6 @@
       </div>
     </div>
   </body>
-  <script src="../scripts/animateJs/iconRes.js"></script>
+  <script src="../../scripts/animateJs/iconRes.js"></script>
+  <script src="../../scripts/animateJs/responsive.js"></script>
 </html>

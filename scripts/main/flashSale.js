@@ -34,7 +34,7 @@ export function fSale() {
       </div>
 
       <div class="overlay-bottom overlayHolder-${counter}" data-id-product="${element.id}">
-        <p>Tambah Kan Ke keranjang</p>
+        <p class="js-sukses3-${counter}">Tambah Kan Ke keranjang</p>
       </div>
     </div>
     <div class="fs-sell-bottom">
@@ -44,7 +44,7 @@ export function fSale() {
         <p>${rpText} ${hargaDiskon}</p>
       </div>
       <div class="bs-rate">
-        <img src="src/rating/rating-${element.rating.bintang}.png" alt="">
+        <img src="../src/rating/rating-${element.rating.bintang}.png" alt="">
         <p>( ${element.rating.jumlah} )</p>
       </div>
     </div>
@@ -85,6 +85,7 @@ export function fSaleHover() {
     const overlayHolder = document.querySelector(
       `.overlayHolder-${card.fsPart}`
     );
+    const suksesText = document.querySelector(`.js-sukses3-${count}`);
 
     hearticon.addEventListener("click", () => {
       hearticon.classList.toggle("aksianimate");
@@ -103,6 +104,12 @@ export function fSaleHover() {
     overlayHolder.addEventListener("click", () => {
       const productId = overlayHolder.dataset.idProduct;
       AddToCart(productId);
+
+      suksesText.innerHTML = "Produk Berhasil Di Tambah";
+
+      setTimeout(() => {
+        suksesText.innerHTML = "Tambahkan Ke Keranjang";
+      }, 600);
     });
 
     let getLocal = localStorage.getItem(`aksianimate-${count}`);

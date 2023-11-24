@@ -98,7 +98,8 @@ export const exploreProduct1 = [
 
 export const exploreProduct2 = [
   {
-    id: "C4RK1D",
+    id: "C4RK1DWHITE",
+    id2: "C4RK1DRED",
     foto: "electricCarWhite.png",
     foto2: "redcar.png",
     nama: "Kids Electric Car",
@@ -114,7 +115,8 @@ export const exploreProduct2 = [
   },
 
   {
-    id: "N1K3Z00M",
+    id: "N1K3Z00MWHITE",
+    id2: "N1K3Z00MBLUE",
     foto: "footballshoeswhite.png",
     foto2: "footballshoesblue.png",
     nama: "NIKE ZOOM MERCURIAL VAPOR 15 Academy FG",
@@ -130,7 +132,8 @@ export const exploreProduct2 = [
   },
 
   {
-    id: "PS5C0N7R0L3R",
+    id: "PS5C0N7R0L3RWHITE",
+    id2: "PS5C0N7R0L3RRED",
     foto: "ps5white.png",
     foto2: "ps5red.png",
     nama: "PLAYSTATION 5 Controller",
@@ -146,7 +149,8 @@ export const exploreProduct2 = [
   },
 
   {
-    id: "J4CK37",
+    id: "J4CK37BLACK",
+    id2: "J4CK37RED",
     foto: "regularjacket.png",
     foto2: "redjacket.png",
     nama: "Quilted Satin Jacket",
