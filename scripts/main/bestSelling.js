@@ -1,6 +1,7 @@
 import { bestSell } from "../product/product.js";
 import { addComa } from "../utils/money.js";
 import { AddToCart } from "../cartSummary/cart.js";
+import { addWish, deleteWish } from "../wishListSummary/wish.js";
 
 export function generateBestSelling() {
   let bsHtml = "";
@@ -23,7 +24,7 @@ export function generateBestSelling() {
         <div class="image-product">
             <div class="image-product-overlay">
                 <div class="overlay-top">
-                <div class="action-overlay aksi-heart-${bsproduk.bsPart}">
+                <div class="action-overlay aksi-heart-${bsproduk.bsPart}" data-id="${bsproduk.id}">
                     <i class="fa-regular fa-heart hearticon"></i>
                 </div>
                 <div class="action-overlay aksi-lihat">
@@ -69,11 +70,21 @@ export function AnimateProduct() {
 
     aksiheart.addEventListener("click", () => {
       aksiheart.classList.toggle("aksianimate");
+      const isaksianimate = aksiheart.classList.contains("aksianimate");
+
+      let idProduct = aksiheart.dataset.id;
+      console.log(idProduct);
+
+      if (!isaksianimate) {
+        deleteWish(idProduct);
+        console.log(idProduct);
+      } else {
+        addWish(idProduct);
+        console.log(idProduct);
+      }
 
       // local storage SET
-      const isaksianimate = aksiheart.classList.contains("aksianimate");
-      // Use local storage to store the state
-      localStorage.setItem(`aksianimate-${element.bsPart}`, isaksianimate);
+      localStorage.setItem(`AksiAnimate2-${element.bsPart}`, isaksianimate);
     });
 
     domBs.addEventListener("mouseover", () => {
@@ -96,7 +107,9 @@ export function AnimateProduct() {
     });
 
     //local storage get from set
-    const isAksianimate = localStorage.getItem(`aksianimate-${element.bsPart}`);
+    const isAksianimate = localStorage.getItem(
+      `AksiAnimate2-${element.bsPart}`
+    );
     // Apply the class if the state is true
     if (isAksianimate === "true") {
       aksiheart.classList.add("aksianimate");

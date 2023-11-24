@@ -2,6 +2,7 @@ import { flashSale } from "../product/product.js";
 import { addComa } from "../utils/money.js";
 import { clickSlider } from "../animateJs/sliderClick.js";
 import { AddToCart } from "../cartSummary/cart.js";
+import { addWish, deleteWish } from "../wishListSummary/wish.js";
 let counter2 = 0;
 
 export function fSale() {
@@ -25,7 +26,7 @@ export function fSale() {
     <div class="fs-sell-card counting${counter}">
     <div class="fs-sell-top fsstop-${element.fsPart}" style="background-image: url('/src/flashSale/${element.foto}');">
       <div class="overlay-top">
-        <div class="action-overlay aksi-hearts-${counter}">
+        <div class="action-overlay aksi-hearts-${counter}" data-product-id="${element.id}">
           <i class="fa-regular fa-heart hearticon"></i>
         </div>
         <div class="action-overlay aksi-lihat">
@@ -88,9 +89,19 @@ export function fSaleHover() {
     const suksesText = document.querySelector(`.js-sukses3-${count}`);
 
     hearticon.addEventListener("click", () => {
+      const idProduct = hearticon.dataset.productId;
       hearticon.classList.toggle("aksianimate");
       let aply = hearticon.classList.contains("aksianimate");
-      localStorage.setItem(`aksianimate-${card.fsPart}`, aply);
+
+      if (!aply) {
+        deleteWish(idProduct);
+        console.log(idProduct);
+      } else {
+        addWish(idProduct);
+        console.log(idProduct);
+      }
+
+      localStorage.setItem(`AksiAnimate-${card.fsPart}`, aply);
     });
 
     fsTop.addEventListener("mouseover", () => {
@@ -112,7 +123,7 @@ export function fSaleHover() {
       }, 600);
     });
 
-    let getLocal = localStorage.getItem(`aksianimate-${count}`);
+    let getLocal = localStorage.getItem(`AksiAnimate-${count}`);
     if (getLocal === "true") {
       hearticon.classList.add("aksianimate");
     } else if (getLocal === "false") {
