@@ -35,7 +35,7 @@ function checkoutMain() {
     <p style="margin-right: 10px;">${quantityHolder}x</p>
       <div class="image-holder">
         <img
-          src="../src/productImg/${foto}"
+          src="../../src/productImg/${foto}"
           alt="${matching.id}"
         />
       </div>

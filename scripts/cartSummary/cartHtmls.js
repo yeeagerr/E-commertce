@@ -37,7 +37,7 @@ export function generateCartHtml() {
       <div
         class="produk-img"
         style="
-          background-image: url('../src/productImg/${foto}');
+          background-image: url('../../src/productImg/${foto}');
         "
       ></div>
       <p class="name-product">${matchProductId.nama}</p>
@@ -139,6 +139,7 @@ function showAction() {
       btnDel.addEventListener("click", () => {
         cartCont.remove();
         deleteCart(dataId);
+        generatePayInfo();
       });
     });
   });

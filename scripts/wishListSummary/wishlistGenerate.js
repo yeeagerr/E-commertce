@@ -1,32 +1,37 @@
-import { wish } from "./wish.js";
-import { getProductId } from "../product/AllProduct.js";
+import { wish, addAllWish } from "./wish.js";
+import { getProductId, product, newArr } from "../product/AllProduct.js";
 import { addComa } from "../utils/money.js";
 import { deleteWish } from "./wish.js";
+import { AddToCart } from "../cartSummary/cart.js";
 
 export function generateWish() {
   let html = "";
   let count = 0;
 
   wish.forEach((wishItem) => {
-    const wishId = wishItem.idProduct;
+    const wishId = wishItem.productId;
     const matching = getProductId(wishId);
 
-    console.log(wishItem);
+    let sortId = matching.id2 ? matching.id2 : matching.id;
+    // let foto = wishItem.extraData ? wishItem.extraData : matching.foto;
+
+    console.log(wishId);
+
     count++;
 
     html += `
-    <div class="best-sell-card js-sell-deleted-${count}">
+    <div class="best-sell-card js-sell-deleted-${count} ">
     <div class="image-product" style="background-image: url('../../src/productImg/${
-      matching.foto
+      wishItem.extraData
     }');">
-      <div class="image-product-overlay">
+      <div class="image-product-overlay js-overlayWish-${count}">
         <div class="overlay-top">
-          <div class="action-overlay deleting" data-id="${matching.id}">
+          <div class="action-overlay deleting" data-id="${sortId}">
             <i class="fa-solid fa-trash-can"></i>
           </div>
         </div>
 
-        <div class="overlay-bottom overlayHolder1">
+        <div class="overlay-bottom overlayHolder1-${count}" data-id="${sortId}">
           <p>Tambah Kan Ke keranjang</p>
         </div>
       </div>
@@ -59,4 +64,42 @@ export function delWish() {
   });
 }
 
-delWish();
+export function wishAdd() {
+  let count = 0;
+
+  wish.forEach((item) => {
+    count++;
+    const imageOverlay = document.querySelector(`.js-overlayWish-${count}`);
+    const overlayHolder1 = document.querySelector(`.overlayHolder1-${count}`);
+
+    imageOverlay.addEventListener("mouseover", () => {
+      overlayHolder1.classList.add("animate-ovrbottom");
+    });
+
+    imageOverlay.addEventListener("mouseout", () => {
+      overlayHolder1.classList.remove("animate-ovrbottom");
+    });
+
+    overlayHolder1.addEventListener("click", () => {
+      const dataId = overlayHolder1.dataset.id;
+      let extra = item.extraData ? item.extraData : matching.foto;
+
+      console.log(dataId, extra);
+      AddToCart(dataId, extra);
+      // const sortId = matching.id2 ? matching.id2 : matching.id;
+    });
+  });
+}
+
+export function addAll() {
+  wish.forEach((wishItem) => {
+    let wishId = wishItem.productId;
+    let wishExtra = wishItem.extra;
+    document.querySelector(".js-move").addEventListener("click", () => {
+      console.log(wishId);
+      addAllWish(wishId, wishExtra);
+
+      window.location.reload();
+    });
+  });
+}

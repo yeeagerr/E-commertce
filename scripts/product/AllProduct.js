@@ -10,7 +10,7 @@ export function getProductId(productId) {
   return matchingProduct;
 }
 
-const product = [
+export const product = [
   {
     id: "GU55IDU",
     id2: 0,
@@ -242,3 +242,25 @@ const product = [
     fsPart: 5,
   },
 ];
+
+export let newArr = [];
+
+let randomMath = Math.round(Math.random() * product.length);
+let randomMath2 = Math.floor(Math.random() * product.length);
+let randomMath3 = Math.round(Math.random() * product.length);
+let randomMath4 = Math.floor(Math.random() * product.length);
+let randomMath5 = Math.floor(Math.random() * product.length);
+
+let productRandom = product[randomMath];
+let productRandom2 = product[randomMath2];
+let productRandom3 = product[randomMath3];
+let productRandom4 = product[randomMath4];
+let productRandom5 = product[randomMath5];
+
+newArr.push(
+  productRandom,
+  productRandom2,
+  productRandom3,
+  productRandom4,
+  productRandom5
+);

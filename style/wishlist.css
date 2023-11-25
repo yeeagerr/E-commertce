@@ -497,7 +497,7 @@ body {
 
 .overlay-bottom {
   background-color: black;
-  height: 30px;
+  height: 0px;
   overflow: hidden;
   width: 100%;
   display: flex;
@@ -507,6 +507,10 @@ body {
   border-bottom-right-radius: 6px;
   border-bottom-left-radius: 6px;
   transition: 0.15s;
+}
+
+.animate-ovrbottom {
+  height: 30px;
 }
 
 .action-overlay {
@@ -534,7 +538,7 @@ body {
   align-items: center;
   justify-content: center;
   background-position: center;
-  background-size: 70%;
+  background-size: 40%;
   background-repeat: no-repeat;
 }
 
@@ -544,6 +548,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 45%;
 }
 
 .just-for-you {

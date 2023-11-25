@@ -95,10 +95,8 @@ export function fSaleHover() {
 
       if (!aply) {
         deleteWish(idProduct);
-        console.log(idProduct);
       } else {
         addWish(idProduct);
-        console.log(idProduct);
       }
 
       localStorage.setItem(`AksiAnimate-${card.fsPart}`, aply);

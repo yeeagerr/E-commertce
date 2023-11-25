@@ -39,7 +39,7 @@
     const searchInput = document.getElementById("searchInput");
     const searchResults = document.getElementById("searchResults");
 
-    const product = [
+    let product = [
       {
         nama: "habib",
         kelas: "11 pplg 1",
@@ -57,14 +57,34 @@
         hobi: [],
       },
     ];
-    searchInput.addEventListener("keyup", (e) => {
-      iValue = searchInput.value;
 
-      let filtered = product.filter((item) => {
+    let search = [];
+    let nama;
+    let hobi;
+    let kelas;
+
+    product.forEach((nwp) => {
+      nama = nwp.nama.toLowerCase();
+      hobi = nwp.hobi.map((hobi) => hobi.toLowerCase());
+      kelas = nwp.kelas.toLocaleLowerCase();
+
+      search.push({
+        snama: nama,
+        shobi: hobi,
+        skelas: kelas,
+      });
+    });
+
+    console.log(search);
+
+    searchInput.addEventListener("keyup", (e) => {
+      iValue = searchInput.value.toLowerCase();
+
+      let filtered = search.filter((item) => {
         return (
-          item.nama.toLowerCase().includes(iValue) ||
-          item.kelas.toLowerCase().includes(iValue) ||
-          item.hobi.some((h) => h.toLowerCase().includes(iValue))
+          item.snama.includes(iValue) ||
+          item.skelas.includes(iValue) ||
+          item.shobi.some((h) => h.toLowerCase().includes(iValue))
         );
       });
 
@@ -83,12 +103,12 @@
       }
 
       results.forEach((e) => {
-        let isHobi = e.hobi.length > 0 ? e.hobi : "Gaada Hobi";
+        let isHobi = e.shobi.length > 0 ? e.shobi : "Gaada Hobi";
 
-        searchHtml += `      
+        searchHtml += `
         <div class="holder">
-            <p class="nama">Nama : ${e.nama}</p>
-            <p class="kelas">Kelas : ${e.kelas}</p>
+            <p class="nama">Nama : ${e.snama}</p>
+            <p class="kelas">Kelas : ${e.skelas}</p>
             <p class="hobi">Hobi : ${isHobi}</p>
         </div>`;
 
@@ -98,12 +118,12 @@
 
     let htmls = "";
 
-    product.forEach((element) => {
-      let isHobi = element.hobi.length > 0 ? element.hobi : "Gaada Hobi";
+    search.forEach((element) => {
+      let isHobi = element.shobi.length > 0 ? element.shobi : "Gaada Hobi";
       htmls += `
       <div class="holder">
-            <p class="nama">Nama : ${element.nama}</p>
-            <p class="kelas">Kelas : ${element.kelas}</p>
+            <p class="nama">Nama : ${element.snama}</p>
+            <p class="kelas">Kelas : ${element.skelas}</p>
             <p class="hobi">Hobi : ${isHobi}</p>
         </div>`;
 

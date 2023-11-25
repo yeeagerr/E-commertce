@@ -73,14 +73,11 @@ export function AnimateProduct() {
       const isaksianimate = aksiheart.classList.contains("aksianimate");
 
       let idProduct = aksiheart.dataset.id;
-      console.log(idProduct);
 
       if (!isaksianimate) {
         deleteWish(idProduct);
-        console.log(idProduct);
       } else {
         addWish(idProduct);
-        console.log(idProduct);
       }
 
       // local storage SET

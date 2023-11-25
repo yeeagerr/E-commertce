@@ -1,6 +1,7 @@
 import { exploreProduct1, exploreProduct2 } from "../product/product.js";
 import { addComa } from "../utils/money.js";
 import { AddToCart } from "../cartSummary/cart.js";
+import { addWish, deleteWish } from "../wishListSummary/wish.js";
 
 export function exploreSellTop() {
   let exploreHTML = "";
@@ -18,7 +19,7 @@ export function exploreSellTop() {
     <div class="image-product">
       <div class="image-product-overlay">
         <div class="overlay-top">
-          <div class="action-overlay aksi-heart-${counter2}">
+          <div class="action-overlay aksi-heart-${counter2}" data-id="${expProduk.id}">
             <i class="fa-regular fa-heart hearticon"></i>
           </div>
           <div class="action-overlay aksi-lihat">
@@ -53,7 +54,6 @@ export function exploreSellBottom() {
 
   let counter = 0;
   exploreProduct2.forEach((element) => {
-    let warna = "";
     let formatMoney = addComa(element.harga);
 
     counter++;
@@ -63,7 +63,7 @@ export function exploreSellBottom() {
     <div class="image-product">
       <div class="image-product-overlay">
         <div class="overlay-top">
-          <div class="action-overlay aksi-hearts${counter}">
+          <div class="action-overlay aksi-hearts${counter}" >
             <i class="fa-regular fa-heart hearticon"></i>
           </div>
           <div class="action-overlay aksi-lihat">
@@ -114,6 +114,15 @@ export function transition() {
 
     heartbtn.addEventListener("click", () => {
       heartbtn.classList.toggle("aksianimate");
+
+      const isaksianimate = heartbtn.classList.contains("aksianimate");
+      let idProduct = heartbtn.dataset.id;
+
+      if (!isaksianimate) {
+        deleteWish(idProduct);
+      } else {
+        addWish(idProduct);
+      }
     });
 
     parent.addEventListener("mouseover", () => {
@@ -156,7 +165,7 @@ export function transition() {
     color1.addEventListener("click", () => {
       color2.classList.remove("outlineTransition");
       color1.classList.add("outlineTransition");
-      imgHolder.setAttribute("src", `src/exploreimg/${element2.foto}`);
+      imgHolder.setAttribute("src", `../../src/exploreimg/${element2.foto}`);
       imgHolder.classList.add("color1");
       imgHolder.classList.remove("color2");
       dataTambah = "foto";
@@ -165,7 +174,7 @@ export function transition() {
     color2.addEventListener("click", () => {
       color2.classList.add("outlineTransition");
       color1.classList.remove("outlineTransition");
-      imgHolder.setAttribute("src", `src/exploreimg/${element2.foto2}`);
+      imgHolder.setAttribute("src", `../../src/exploreimg/${element2.foto2}`);
       imgHolder.classList.remove("color1");
       imgHolder.classList.add("color2");
       dataTambah = "foto2";
@@ -173,6 +182,27 @@ export function transition() {
 
     heartbtn.addEventListener("click", () => {
       heartbtn.classList.toggle("aksianimate");
+
+      const isaksianimate = heartbtn.classList.contains("aksianimate");
+      let idProduct = heartbtn.dataset.id;
+
+      let warnaWish = "";
+
+      if (imgHolder.classList.contains("color1")) {
+        warnaWish = element2.foto;
+        idProduct = element2.id;
+      } else if (imgHolder.classList.contains("color2")) {
+        warnaWish = element2.foto2;
+        idProduct = element2.id2;
+      }
+
+      if (!isaksianimate) {
+        deleteWish(idProduct, warnaWish);
+        console.log(idProduct);
+      } else {
+        addWish(idProduct, warnaWish);
+        console.log(idProduct);
+      }
     });
 
     parent2.addEventListener("mouseover", () => {

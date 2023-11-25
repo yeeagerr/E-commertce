@@ -1,10 +1,18 @@
-export let wish = JSON.parse(localStorage.getItem("wish-test5"));
+import { AddToCart } from "../cartSummary/cart.js";
+
+export let wish = JSON.parse(localStorage.getItem("wish-test7"));
 
 if (!wish) {
   wish = [];
 }
 
-export function addWish(id) {
+// function debugg(params) {
+//   console.log(wish);
+// }
+
+// debugg();
+
+export function addWish(id, extraWish) {
   let match;
 
   wish.forEach((wishItem) => {
@@ -15,22 +23,35 @@ export function addWish(id) {
 
   if (!match) {
     wish.push({
-      idProduct: id,
+      productId: id,
+      extraData: extraWish,
     });
   }
 
-  localStorage.setItem("wish-test5", JSON.stringify(wish));
+  localStorage.setItem("wish-test7", JSON.stringify(wish));
 }
 
 export function deleteWish(id) {
   let newWish = [];
 
   wish.forEach((wishItem) => {
-    if (wishItem.idProduct !== id) {
+    if (wishItem.productId !== id) {
       newWish.push(wishItem);
     }
   });
 
   wish = newWish;
-  localStorage.setItem("wish-test5", JSON.stringify(wish));
+  localStorage.setItem("wish-test7", JSON.stringify(wish));
+}
+
+export function addAllWish(id, extraData) {
+  let wishHold = [];
+
+  wish.forEach((wishItem) => {
+    wishHold.push(wishItem);
+  });
+
+  AddToCart(id, extraData);
+  deleteWish(id);
+  console.log();
 }
