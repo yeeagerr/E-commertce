@@ -13,20 +13,20 @@ function slideKategori() {
   const rightBtn = document.querySelector(".right-kategori");
 
   leftBtn.addEventListener("click", () => {
-    alert.style.display = "flex";
+    alert.classList.add("alertA");
     console.log("hi");
 
     setTimeout(() => {
-      alert.style.display = "none";
+      alert.classList.remove("alertA");
     }, 1500);
   });
 
   rightBtn.addEventListener("click", () => {
-    alert.style.display = "flex";
+    alert.classList.add("alertA");
     console.log("hi");
 
     setTimeout(() => {
-      alert.style.display = "none";
+      alert.classList.remove("alertA");
     }, 1500);
   });
 }

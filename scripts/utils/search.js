@@ -88,11 +88,13 @@ export function showSearch() {
   cancel1.addEventListener("click", () => {
     display.classList.remove("searchUp");
     cancel1.style.display = "none";
+    searching.value = "";
   });
 
   cancel2.addEventListener("click", () => {
     display2.classList.remove("searchUp");
     cancel2.style.display = "none";
+    search2.value = "";
   });
 
   searching.addEventListener("keyup", () => {

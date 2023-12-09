@@ -285,6 +285,10 @@ body {
   height: 400px;
 }
 
+.left-part > :nth-child(3) {
+  width: 300px;
+}
+
 .top-title {
   display: flex;
   align-items: center;
@@ -679,6 +683,7 @@ form input:focus {
     width: 90%;
     height: 300px;
     align-items: center;
+    justify-content: space-evenly;
     margin-left: 30px;
   }
 
@@ -827,7 +832,7 @@ form input:focus {
 
   .left-part {
     display: block;
-    width: 30%;
+    width: 20%;
     height: 400px;
     align-items: start;
     margin-left: 0px;

@@ -243,6 +243,8 @@ export const product = [
   },
 ];
 
+//untuk mengambil produk random
+
 export let newArr = [];
 
 let randomMath = Math.round(Math.random() * product.length);

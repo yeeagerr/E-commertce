@@ -11,8 +11,16 @@ export function recommendHtml() {
   newArr.forEach((element) => {
     counter++;
 
-    let formatPrice = element.harga;
-    let formatdiskon = element.diskon;
+    let formatPrice;
+    let formatdiskon;
+
+    if (element.harga) {
+      formatPrice = element.harga;
+    }
+
+    if (element.diskon) {
+      formatdiskon = element.diskon;
+    }
 
     if (!formatdiskon) {
       formatdiskon = "";
