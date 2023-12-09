@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" class="input" />
+  </body>
+  <script>
+    const students = [
+      {
+        name: "david",
+        hoby: ["football", "basketball"],
+      },
+      {
+        name: "phai",
+        hoby: ["tennis", "golf"],
+      },
+    ];
+
+    const inputVal = document.querySelector(".input");
+    inputVal.addEventListener("keyup", () => {
+      let value = inputVal.value;
+      console.log(value);
+      let filtered = students.filter((e) => {
+        return e.name.includes(value) || e.hoby.some((h) => h.includes(value));
+      });
+      console.log(filtered);
+    });
+  </script>
+</html>

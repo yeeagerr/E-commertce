@@ -29,24 +29,82 @@
       <h1>LOGO</h1>
 
       <div class="nav-list">
-        <p><a href="#">Beranda</a></p>
-        <p><a href="?">Hubungi</a></p>
-        <p><a href="?">Tentang</a></p>
-        <p><a href="LogOrReg/register.html">Registrasi</a></p>
-        <p><a href="LogOrReg/login.html">Login</a></p>
+        <p><a href="/indexing/indexing.html">Beranda</a></p>
+        <p><a href="/pagesHTML/contact/contact.html">Hubungi</a></p>
+        <p><a href="#">Tentang</a></p>
       </div>
 
       <div class="nav-extra">
-        <input class="searching" type="text" placeholder="Cari Barang" />
-        <i
-          class="fa-solid fa-magnifying-glass search-icon"
-          style="cursor: pointer; color: #000000"
-        ></i>
-        <i class="fa-regular fa-heart icon-extra" style="color: #000000"></i>
-        <i
-          class="fa-solid fa-cart-shopping icon-extra"
-          style="color: #000000"
-        ></i>
+        <div class="nav-ext-top">
+          <input
+            class="searching search1"
+            type="text"
+            placeholder="Cari Barang"
+          />
+          <i
+            class="fa-solid fa-xmark search-icon cancel1"
+            style="cursor: pointer; color: #000000; display: none"
+          ></i>
+          <i
+            onclick="window.location.href ='../pagesHTML/wishlist/wishlist.html'"
+            class="fa-regular fa-heart icon-extra"
+            style="color: #000000"
+          ></i>
+          <i
+            onclick="window.location.href ='../pagesHTML/cart/cart.html'"
+            class="fa-solid fa-cart-shopping icon-extra"
+            style="color: #000000"
+          ></i>
+
+          <div class="user-icon">
+            <img
+              src="../src/icon/user.png"
+              class="user-photo"
+              alt="user default "
+            />
+            <div class="user-icon-dropdown">
+              <div class="drop-user-content">
+                <img
+                  class="user-photo-dropdown"
+                  src="../src/icon/user2.png"
+                  alt="user setting"
+                />
+                <p>Manage My Account</p>
+              </div>
+              <div class="drop-user-content">
+                <img
+                  class="user-photo-dropdown"
+                  src="../src/icon/icon-mallbag.png"
+                  alt="user setting"
+                />
+                <p>Keranjang Saya</p>
+              </div>
+              <div class="drop-user-content">
+                <img
+                  class="user-photo-dropdown"
+                  src="../src/icon/Icon-logout.png"
+                  alt="user setting"
+                />
+                <p>Logout</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-ext-bot">
+          <div class="search-slide">
+            <!-- <div class="product-search">
+              <div class="ps-left">
+                <img src="../src/productImg/dogfood.png" />
+              </div>
+              <div class="ps-right">
+                <p>Dog Food</p>
+                <img src="../src/rating/rating-4.png" alt="" />
+                <p>Rp. 100.000</p>
+              </div>
+            </div> -->
+          </div>
+        </div>
       </div>
     </div>
 
@@ -57,38 +115,76 @@
         <div></div>
       </div>
       <div class="nav-extra">
-        <input class="searching" type="text" placeholder="Cari Barang" />
-        <i
-          class="fa-solid fa-magnifying-glass search-icon"
-          style="cursor: pointer; color: #000000"
-        ></i>
-        <i class="fa-regular fa-heart icon-extra" style="color: #000000"></i>
-        <i
-          class="fa-solid fa-cart-shopping icon-extra"
-          style="color: #000000"
-        ></i>
+        <div class="nav-ext-top">
+          <input
+            class="searching search2"
+            type="text"
+            placeholder="Cari Barang"
+          />
+          <i
+            class="fa-solid fa-xmark search-icon cancel2"
+            style="cursor: pointer; color: #000000; display: none"
+          ></i>
+          <i
+            onclick="window.location.href ='../pagesHTML/wishlist/wishlist.html'"
+            class="fa-regular fa-heart icon-extra"
+            style="color: #000000"
+          ></i>
+          <i
+            onclick="window.location.href ='../pagesHTML/cart/cart.html'"
+            class="fa-solid fa-cart-shopping icon-extra"
+            style="color: #000000"
+          ></i>
+        </div>
+
+        <div class="nav-ext-bot bot2">
+          <div class="search-slide2">
+            <!-- <div class="product-search">
+              <div class="ps-left">
+                <img src="../src/productImg/dogfood.png" />
+              </div>
+              <div class="ps-right">
+                <p>Dog Food</p>
+                <img src="../src/rating/rating-4.png" alt="" />
+                <p>Rp. 100.000</p>
+              </div>
+            </div> -->
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="dropdown">
       <div class="resLogReg">
-        <button>Masuk</button>
-        <button>Daftar</button>
+        <button
+          onclick="window.location.href ='/pagesHTML/account/account.html'"
+        >
+          Akun
+        </button>
+        <button>Logout</button>
       </div>
 
       <div class="resnav-content">
-        <p><i class="fa-solid fa-house"></i><a href="">Beranda</a></p>
-        <p><i class="fa-solid fa-address-book"></i> <a href="">Hubungi</a></p>
-        <p><i class="fa-solid fa-circle-info"></i><a href="">Tentang</a></p>
-        <p><i class="fa-solid fa-address-card"></i><a href="">Registrasi</a></p>
-        <p><i class="fa-solid fa-address-card"></i><a href="">Login</a></p>
+        <p>
+          <i class="fa-solid fa-house"></i><a href="/index.html">Beranda</a>
+        </p>
+        <p>
+          <i class="fa-solid fa-address-book"></i>
+          <a href="/pagesHTML/contact/contact.html">Hubungi</a>
+        </p>
+        <p><i class="fa-solid fa-circle-info"></i><a href="#">Tentang</a></p>
+        <p>
+          <i class="fa-solid fa-address-card"></i
+          ><a href="/pagesHTML/account/account.html">Akun</a>
+        </p>
+        <p><i class="fa-solid fa-address-card"></i><a href="">Logout</a></p>
       </div>
 
       <div class="resnav-info">
         <p>
           Penjualan Tanggal dan Bulan Oktober ini Gratis Ongkir
           <strong>50%</strong> -
-          <a href="">Belanja Sekarang</a>
+          <a href="/indexing/indexing.html">Belanja Sekarang</a>
         </p>
       </div>
     </div>
@@ -330,4 +426,6 @@
   </body>
   <script src="../scripts/animateJs/hoverBoxnActive.js"></script>
   <script src="../scripts/animateJs/responsive.js"></script>
+  <script src="../scripts/animateJs/iconRes.js"></script>
+  <script src="../scripts/utils/search.js" type="module"></script>
 </html>

@@ -29,21 +29,25 @@
       <h1>LOGO</h1>
 
       <div class="nav-list">
-        <p><a href="../indexing.html">Beranda</a></p>
-        <p><a href="">Hubungi</a></p>
-        <p><a href="">Tentang</a></p>
-        <p><a href="">Registrasi</a></p>
-        <p><a href="">Login</a></p>
+        <p><a href="../../indexing/indexing.html">Beranda</a></p>
+        <p><a href="../contact/contact.html">Hubungi</a></p>
+        <p><a href="../../aboutUs/aboutus.html">Tentang</a></p>
       </div>
 
       <div class="nav-extra">
         <input class="searching" type="text" placeholder="Cari Barang" />
         <i
+          onclick="window.location.href ='../pagesHTML/wishlist/wishlist.html'"
           class="fa-solid fa-magnifying-glass search-icon"
           style="cursor: pointer; color: #000000"
         ></i>
-        <i class="fa-regular fa-heart icon-extra" style="color: #000000"></i>
         <i
+          onclick="window.location.href ='../wishlist/wishlist.html'"
+          class="fa-regular fa-heart icon-extra"
+          style="color: #000000"
+        ></i>
+        <i
+          onclick="window.location.href ='../cart/cart.html'"
           class="fa-solid fa-cart-shopping icon-extra"
           style="color: #000000"
         ></i>
@@ -96,8 +100,13 @@
           class="fa-solid fa-magnifying-glass search-icon"
           style="cursor: pointer; color: #000000"
         ></i>
-        <i class="fa-regular fa-heart icon-extra" style="color: #000000"></i>
         <i
+          onclick="window.location.href ='../wishlist/wishlist.html'"
+          class="fa-regular fa-heart icon-extra"
+          style="color: #000000"
+        ></i>
+        <i
+          onclick="window.location.href ='../cart/cart.html'"
           class="fa-solid fa-cart-shopping icon-extra"
           style="color: #000000"
         ></i>
@@ -111,11 +120,23 @@
       </div>
 
       <div class="resnav-content">
-        <p><i class="fa-solid fa-house"></i><a href="">Beranda</a></p>
-        <p><i class="fa-solid fa-address-book"></i> <a href="">Hubungi</a></p>
-        <p><i class="fa-solid fa-circle-info"></i><a href="">Tentang</a></p>
-        <p><i class="fa-solid fa-address-card"></i><a href="">Registrasi</a></p>
-        <p><i class="fa-solid fa-address-card"></i><a href="">Login</a></p>
+        <p>
+          <i class="fa-solid fa-house"></i
+          ><a href="../../indexing/indexing.html">Beranda</a>
+        </p>
+        <p>
+          <i class="fa-solid fa-address-book"></i>
+          <a href="../contact/contact.html">Hubungi</a>
+        </p>
+        <p>
+          <i class="fa-solid fa-circle-info"></i
+          ><a href="../../aboutUs/aboutus.html">Tentang</a>
+        </p>
+        <p><i class="fa-solid fa-address-card"></i><a href="">Logout</a></p>
+        <p>
+          <i class="fa-solid fa-address-card"></i
+          ><a href="../account/account.html">Akun</a>
+        </p>
       </div>
 
       <div class="resnav-info">
@@ -174,7 +195,11 @@
           </div>
 
           <div class="cart-btn">
-            <button>Return To Shop</button>
+            <button
+              onclick="window.location.href ='../../indexing/indexing.html'"
+            >
+              Return To Shop
+            </button>
             <button id="save" class="change-quantity-closed">Finished</button>
             <button id="update">Update Cart</button>
           </div>
@@ -300,4 +325,5 @@
 
   <script src="../../scripts/animateJs/iconRes.js" type="module"></script>
   <script src="../../scripts/cartSummary/runCart.js" type="module"></script>
+  <script src="../../scripts/animateJs/responsive.js"></script>
 </html>

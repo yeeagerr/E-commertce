@@ -6,6 +6,7 @@ import {
   exploreSellBottom,
   transition,
 } from "./main/exploring.js";
+import { showSearch } from "./utils/search.js";
 
 // generating
 import { fSale, fSaleHover } from "./main/flashSale.js";
@@ -23,3 +24,4 @@ animasiList();
 countDown1();
 transition();
 fSaleHover();
+showSearch();

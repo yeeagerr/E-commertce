@@ -28,9 +28,6 @@ export function AddToCart(theProductId, Tambahan) {
     });
   }
 
-  console.log(theProductId);
-  console.log(Tambahan);
-
   saveToStorage();
 }
 

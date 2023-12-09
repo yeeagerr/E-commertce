@@ -662,6 +662,10 @@ body {
     display: none;
   }
 
+  .cart-items p {
+    font-size: larger;
+  }
+
   .cart-container {
     display: flex;
     flex-direction: column;
@@ -871,6 +875,11 @@ body {
 
 /* Medium devices such as tablets (768px and up) */
 @media only screen and (min-width: 770px) {
+  .user-icon-dropdown {
+    top: 10%;
+    right: 1%;
+  }
+
   .start-top {
     display: none;
   }
@@ -930,6 +939,16 @@ body {
 
 /* Large devices such as laptops (1024px and up) */
 @media only screen and (min-width: 1024px) {
+  .user-icon-dropdown {
+    top: 13%;
+    right: 1%;
+  }
+
+  .user-icon-dropdown {
+    top: 13%;
+    right: 3%;
+  }
+
   .start-top {
     display: flex;
   }

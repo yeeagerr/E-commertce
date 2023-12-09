@@ -229,6 +229,7 @@ body {
   justify-content: space-evenly;
   width: 250px;
   height: 0px;
+  right: 0%;
   overflow: hidden;
   top: 16%;
   position: absolute;
@@ -1277,6 +1278,9 @@ body {
 
 /* Medium devices such as tablets (768px and up) */
 @media only screen and (min-width: 770px) {
+  .user-icon-dropdown {
+    top: 10%;
+  }
   .start-top {
     display: none;
   }
@@ -1503,6 +1507,10 @@ body {
 
 /* Large devices such as laptops (1024px and up) */
 @media only screen and (min-width: 1024px) {
+  .user-icon-dropdown {
+    top: 15%;
+  }
+
   .start-top {
     display: flex;
   }
