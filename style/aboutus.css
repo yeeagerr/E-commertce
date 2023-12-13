@@ -213,8 +213,8 @@ body {
   justify-content: space-evenly;
   width: 250px;
   height: 0px;
+  right: 0%;
   overflow: hidden;
-  top: 16%;
   position: absolute;
   background-color: rgb(128, 128, 128);
   transition: 0.7s;
@@ -798,6 +798,9 @@ body {
 }
 
 @media only screen and (max-width: 435px) {
+  .nav-ext-bot {
+    top: 50px;
+  }
   .start-top {
     display: none;
   }
@@ -869,6 +872,9 @@ body {
 }
 
 @media only screen and (min-width: 435px) {
+  .nav-ext-bot {
+    top: 50px;
+  }
   .start-top {
     display: none;
   }
@@ -998,11 +1004,6 @@ body {
 
 /* Medium devices such as tablets (768px and up) */
 @media only screen and (min-width: 770px) {
-  .user-icon-dropdown {
-    top: 10%;
-    right: 1%;
-  }
-
   .nav-ext-bot {
     top: 60px;
   }
@@ -1066,11 +1067,6 @@ body {
 
 /* Large devices such as laptops (1024px and up) */
 @media only screen and (min-width: 1024px) {
-  .user-icon-dropdown {
-    top: 13%;
-    right: 3%;
-  }
-
   .nav-ext-bot {
     top: 100px;
   }
@@ -1171,11 +1167,6 @@ body {
 
 /* Largest devices such as desktops (1280px and up) */
 @media only screen and (min-width: 1280px) {
-  .user-icon-dropdown {
-    top: 13%;
-    right: 1%;
-  }
-
   .start-top {
     display: flex;
   }

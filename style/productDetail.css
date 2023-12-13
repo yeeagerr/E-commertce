@@ -177,9 +177,31 @@ body {
 .nav-extra {
   height: 50px;
   display: flex;
+  align-items: start;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: auto;
+}
+
+.nav-ext-bot {
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  width: 240px;
+  right: 15%;
+  position: absolute;
+  height: 0px;
+  overflow-x: hidden;
+  transition: 0.7s;
+}
+
+.searchUp {
+  height: 300px;
+}
+
+.nav-ext-top {
+  display: flex;
   align-items: center;
   justify-content: space-evenly;
-  width: 350px;
 }
 
 .searching {
@@ -192,6 +214,66 @@ body {
   font-size: small;
   font-weight: bold;
   letter-spacing: 1px;
+}
+
+.search-slide {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.product-search {
+  height: 60px;
+  width: 99%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  cursor: pointer;
+  padding: 5px;
+  transition: 0.15s;
+}
+
+.product-search:hover {
+  border: solid black 1px;
+  transform: scale(1.1, 1.1);
+}
+
+.ps-left {
+  height: 100%;
+  width: 80px;
+}
+
+.ps-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ps-right {
+  height: 100%;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ps-right p {
+  margin: 0px;
+  font-size: small;
+}
+
+.ps-right > p:first-child {
+  font-weight: bold;
+}
+
+.ps-right > img:nth-child(2) {
+  width: 70px;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 .searching:focus {
@@ -209,7 +291,6 @@ body {
   cursor: pointer;
   margin: 5px;
 }
-
 .user-icon {
   width: 40px;
   height: 38px;
@@ -235,8 +316,8 @@ body {
   justify-content: space-evenly;
   width: 250px;
   height: 0px;
+  right: 0%;
   overflow: hidden;
-  top: 16%;
   position: absolute;
   background-color: rgb(128, 128, 128);
   transition: 0.7s;
@@ -934,7 +1015,7 @@ body {
   }
 
   .rltd-container {
-    justify-content: center;
+    justify-content: space-evenly;
   }
 
   .colours {

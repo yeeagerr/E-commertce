@@ -175,11 +175,33 @@ body {
 }
 
 .nav-extra {
-  height: 50px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: auto;
+}
+
+.nav-ext-bot {
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  width: 240px;
+  position: absolute;
+  height: 0px;
+  overflow-x: hidden;
+  transition: 0.7s;
+  right: 15%;
+}
+
+.searchUp {
+  height: 300px;
+}
+
+.nav-ext-top {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  width: 350px;
 }
 
 .searching {
@@ -194,6 +216,66 @@ body {
   letter-spacing: 1px;
 }
 
+.search-slide3 {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.product-search {
+  height: 60px;
+  width: 99%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  cursor: pointer;
+  padding: 5px;
+  transition: 0.15s;
+}
+
+.product-search:hover {
+  border: solid black 1px;
+  transform: scale(1.1, 1.1);
+}
+
+.ps-left {
+  height: 100%;
+  width: 80px;
+}
+
+.ps-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ps-right {
+  height: 100%;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ps-right p {
+  margin: 0px;
+  font-size: small;
+}
+
+.ps-right > p:first-child {
+  font-weight: bold;
+}
+
+.ps-right > img:nth-child(2) {
+  width: 70px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
 .searching:focus {
   outline: none;
 }
@@ -203,7 +285,6 @@ body {
   right: 50px;
   z-index: 1;
 }
-
 .icon-extra {
   font-size: 20px;
   cursor: pointer;
@@ -236,7 +317,7 @@ body {
   width: 250px;
   height: 0px;
   overflow: hidden;
-  top: 16%;
+  right: 0%;
   position: absolute;
   background-color: rgb(128, 128, 128);
   transition: 0.7s;
@@ -503,6 +584,10 @@ form input:focus {
 }
 
 @media only screen and (max-width: 435px) {
+  .navres {
+    height: 50px;
+  }
+
   .start-top {
     display: none;
   }
@@ -583,6 +668,10 @@ form input:focus {
 }
 
 @media only screen and (min-width: 435px) {
+  .navres {
+    height: 65px;
+  }
+
   .start-top {
     display: none;
   }
@@ -654,6 +743,9 @@ form input:focus {
 
 /* Small devices such as large phones (640px and up) */
 @media only screen and (min-width: 640px) {
+  .navres {
+    height: 65px;
+  }
   .start-top {
     display: none;
   }

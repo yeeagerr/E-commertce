@@ -6,8 +6,6 @@ function navbarRes() {
   threeline.addEventListener("click", () => {
     dropdown.classList.toggle("dropanimate");
     body.classList.toggle("overflow-y");
-
-    console.log("hello");
   });
 }
 

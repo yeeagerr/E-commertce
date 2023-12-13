@@ -4,8 +4,10 @@ import { addComa } from "./money.js";
 export function showSearch() {
   const searching = document.querySelector(".search1");
   const search2 = document.querySelector(".search2");
+
   const display = document.querySelector(".nav-ext-bot");
   const display2 = document.querySelector(".bot2");
+
   const cancel1 = document.querySelector(".cancel1");
   const cancel2 = document.querySelector(".cancel2");
 

@@ -35,24 +35,63 @@
       </div>
 
       <div class="nav-extra">
-        <input class="searching" type="text" placeholder="Cari Barang" />
-        <i
-          class="fa-solid fa-magnifying-glass search-icon"
-          style="cursor: pointer; color: #000000"
-        ></i>
-        <i
-          onclick="window.location.href ='../wishlist/wishlist.html'"
-          class="fa-regular fa-heart icon-extra"
-          style="color: #000000"
-        ></i>
-        <i
-          onclick="window.location.href ='../cart/cart.html'"
-          class="fa-solid fa-cart-shopping icon-extra"
-          style="color: #000000"
-        ></i>
+        <div class="nav-ext-top">
+          <input
+            class="searching search3"
+            type="text"
+            placeholder="Cari Barang"
+          />
+          <i
+            class="fa-solid fa-xmark search-icon cancel3"
+            style="cursor: pointer; color: #000000; display: none"
+          ></i>
+          <i
+            onclick="window.location.href ='../../pagesHTML/wishlist/wishlist.html'"
+            class="fa-regular fa-heart icon-extra"
+            style="color: #000000"
+          ></i>
+          <i
+            onclick="window.location.href ='../../pagesHTML/cart/cart.html'"
+            class="fa-solid fa-cart-shopping icon-extra"
+            style="color: #000000"
+          ></i>
+
+          <div class="user-icon">
+            <img
+              src="../../src/icon/user.png"
+              class="user-photo"
+              alt="user default "
+            />
+          </div>
+        </div>
       </div>
     </div>
-
+    <div class="user-icon-dropdown">
+      <div class="drop-user-content">
+        <img
+          class="user-photo-dropdown"
+          src="../../src/icon/user2.png"
+          alt="user setting"
+        />
+        <p>Manage My Account</p>
+      </div>
+      <div class="drop-user-content">
+        <img
+          class="user-photo-dropdown"
+          src="../../src/icon/icon-mallbag.png"
+          alt="user setting"
+        />
+        <p>Keranjang Saya</p>
+      </div>
+      <div class="drop-user-content">
+        <img
+          class="user-photo-dropdown"
+          src="../../src/icon/Icon-logout.png"
+          alt="user setting"
+        />
+        <p>Logout</p>
+      </div>
+    </div>
     <div class="navres">
       <div class="three-line">
         <div></div>
@@ -60,21 +99,40 @@
         <div></div>
       </div>
       <div class="nav-extra">
-        <input class="searching" type="text" placeholder="Cari Barang" />
+        <input
+          class="searching search3"
+          type="text"
+          placeholder="Cari Barang"
+        />
         <i
-          class="fa-solid fa-magnifying-glass search-icon"
+          class="fa-solid fa-xmark search-icon cancel3"
           style="cursor: pointer; color: #000000"
         ></i>
         <i
-          onclick="window.location.href ='../wishlist/wishlist.html'"
+          onclick="window.location.href ='../../wishlist/wishlist.html'"
           class="fa-regular fa-heart icon-extra"
           style="color: #000000"
         ></i>
         <i
-          onclick="window.location.href ='../cart/cart.html'"
+          onclick="window.location.href ='../../cart/cart.html'"
           class="fa-solid fa-cart-shopping icon-extra"
           style="color: #000000"
         ></i>
+      </div>
+    </div>
+
+    <div class="nav-ext-bot bot3">
+      <div class="search-slide3">
+        <!-- <div class="product-search">
+          <div class="ps-left">
+            <img src="../src/productImg/dogfood.png" />
+          </div>
+          <div class="ps-right">
+            <p>Dog Food</p>
+            <img src="../src/rating/rating-4.png" alt="" />
+            <p>Rp. 100.000</p>
+          </div>
+        </div> -->
       </div>
     </div>
 
@@ -241,4 +299,5 @@
   </body>
   <script src="../../scripts/animateJs/iconRes.js"></script>
   <script src="../../scripts/animateJs/responsive.js"></script>
+  <script type="module" src="./srch.js"></script>
 </html>
