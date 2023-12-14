@@ -30,5 +30,3 @@ function slideKategori() {
     }, 1500);
   });
 }
-
-slideKategori();

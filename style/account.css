@@ -236,7 +236,7 @@ body {
   width: 250px;
   height: 0px;
   overflow: hidden;
-  top: 16%;
+  right: 0%;
   position: absolute;
   background-color: rgb(128, 128, 128);
   transition: 0.7s;

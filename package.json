@@ -1,5 +1,19 @@
 {
   "dependencies": {
+    "express": "^4.18.2",
     "mysql2": "^3.6.5"
-  }
+  },
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "main": "js.js",
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Muhammad Habib Abdillah",
+  "license": "ISC",
+  "description": ""
 }

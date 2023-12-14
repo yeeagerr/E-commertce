@@ -314,6 +314,7 @@ body {
   height: 0px;
   overflow: hidden;
   right: 0%;
+  cursor: pointer;
   position: absolute;
   background-color: rgb(128, 128, 128);
   transition: 0.7s;
