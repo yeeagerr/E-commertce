@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="../style/register.css" />
+    <title>Auth Verif</title>
+    <link rel="stylesheet" href="style/err.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -25,100 +25,26 @@
       </select>
     </div>
 
-    <div class="navbar">
-      <h1>LOGO</h1>
+    <div class="err-container">
+      <h1 style="margin: 0px">VERIFICATION</h1>
+      <p style="text-align: center">
+        Silahkan Melakukan Verifikasi Melalui Yang Email Sudah Kamu Daftar
+      </p>
 
-      <div class="nav-list">
-        <p><a href="/">Beranda</a></p>
-        <p><a href="#">Registrasi</a></p>
-        <p><a href="/login">Login</a></p>
-      </div>
-
-      <div class="nav-extra">
-        <input class="searching" type="text" placeholder="Cari Barang" />
-        <i
-          class="fa-solid fa-magnifying-glass search-icon"
-          style="cursor: pointer; color: #000000"
-        ></i>
-        <i class="fa-regular fa-heart icon-extra" style="color: #000000"></i>
-        <i
-          class="fa-solid fa-cart-shopping icon-extra"
-          style="color: #000000"
-        ></i>
-      </div>
-    </div>
-
-    <div class="navres">
-      <div class="three-line">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="nav-extra">
-        <input class="searching" type="text" placeholder="Cari Barang" />
-        <i
-          class="fa-solid fa-magnifying-glass search-icon"
-          style="cursor: pointer; color: #000000"
-        ></i>
-        <i class="fa-regular fa-heart icon-extra" style="color: #000000"></i>
-        <i
-          class="fa-solid fa-cart-shopping icon-extra"
-          style="color: #000000"
-        ></i>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <div class="resLogReg">
-        <button>Masuk</button>
-        <button>Daftar</button>
-      </div>
-
-      <div class="resnav-content">
-        <p><i class="fa-solid fa-house"></i><a href="/">Beranda</a></p>
-        <p>
-          <i class="fa-solid fa-address-card"></i><a href="#">Registrasi</a>
-        </p>
-        <p>
-          <i class="fa-solid fa-address-card"></i><a href="/login">Login</a>
-        </p>
-      </div>
-
-      <div class="resnav-info">
-        <p>
-          Penjualan Tanggal dan Bulan Oktober ini Gratis Ongkir
-          <strong>50%</strong> -
-          <a href="">Belanja Sekarang</a>
-        </p>
-      </div>
-    </div>
-
-    <div class="register-container">
-      <div class="left-reg"></div>
-      <div class="right-reg">
-        <div class="title-reg">
-          <h1>Buat Akun</h1>
-          <p>Masukkan detail Anda di bawah ini</p>
-        </div>
-
-        <form action="/registered" method="post">
-          <input required type="text" placeholder="Username" name="username" />
-          <input required type="email" placeholder="Email" name="email" />
-          <input required type="password" placeholder="Password" name="pass" />
-          <button>Buat Akun</button>
-          <button>
-            <i
-              class="fa-brands fa-google"
-              style="margin-right: 10px; font-size: 23px"
-            ></i
-            >Buat Akun Dengan Google
-          </button>
-        </form>
-
-        <p>
-          Sudah punya akun? <a href="/login" style="color: black">Log In</a>
-        </p>
-      </div>
+      <button
+        onclick="window.location.href='./index.html'"
+        style="
+          background-color: #db4444;
+          border: none;
+          height: 45px;
+          width: 200px;
+          color: white;
+          border-radius: 5px;
+          cursor: pointer;
+        "
+      >
+        Kembali Ke Beranda
+      </button>
     </div>
 
     <div class="mfooter">
@@ -200,6 +126,4 @@
       </div>
     </div>
   </body>
-
-  <script type="module" src="../scripts/animateJs/responsive.js"></script>
 </html>

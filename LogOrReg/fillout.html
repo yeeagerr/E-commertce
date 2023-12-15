@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/account.css" />
+    <style>
+      body {
+        overflow: hidden;
+      }
+      .holder {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      form {
+        height: auto;
+        width: 60%;
+      }
+
+      @media only screen and (max-width: 425px) {
+        form {
+          width: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="holder">
+      <h1 style="text-align: center; letter-spacing: 1px">
+        Mohon Isi Informasi Tentang Anda
+      </h1>
+      <form action="" method="post">
+        <div class="nama-part">
+          <div class="depan">
+            <p>Nama Depan</p>
+            <input name="namaDepan" type="text" placeholder="John" />
+          </div>
+
+          <div class="belakang">
+            <p>Nama Akhir</p>
+            <input name="namaBelakang" type="text" placeholder="Doe" />
+          </div>
+        </div>
+
+        <div class="nama-part">
+          <div class="belakang">
+            <p>Alamat</p>
+            <input
+              type="text"
+              name="alamat"
+              placeholder="Indonesia, Batam Bengkong...."
+            />
+          </div>
+        </div>
+
+        <div class="btnForm">
+          <button>Batal</button>
+          <button>Simpan Perubahan</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
