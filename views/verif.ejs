@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Auth Verif</title>
-    <link rel="stylesheet" href="style/err.css" />
+    <link rel="stylesheet" href="/style/err.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -29,22 +29,27 @@
       <h1 style="margin: 0px">VERIFICATION</h1>
       <p style="text-align: center">
         Silahkan Melakukan Verifikasi Melalui Yang Email Sudah Kamu Daftar
+        <br />
+        <br />
+
+        Klik Tombol Di Bawah Ini Jika Anda Sudah Melakukan Verifikasi
       </p>
 
-      <button
-        onclick="window.location.href='./index.html'"
-        style="
-          background-color: #db4444;
-          border: none;
-          height: 45px;
-          width: 200px;
-          color: white;
-          border-radius: 5px;
-          cursor: pointer;
-        "
-      >
-        Kembali Ke Beranda
-      </button>
+      <a href="/success/<%= params %>">
+        <button
+          style="
+            background-color: #db4444;
+            border: none;
+            height: 45px;
+            width: 200px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+          "
+        >
+          Tahap Selanjutnya
+        </button>
+      </a>
     </div>
 
     <div class="mfooter">
