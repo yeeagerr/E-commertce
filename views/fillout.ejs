@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../style/account.css" />
+    <link rel="stylesheet" href="/style/account.css" />
     <style>
       body {
         overflow: hidden;
@@ -34,7 +34,10 @@
       <h1 style="text-align: center; letter-spacing: 1px">
         Mohon Isi Informasi Tentang Anda
       </h1>
-      <form action="" method="post">
+      <form
+        action="http://localhost:3000/verif2/fillout/<%= kode %>"
+        method="post"
+      >
         <div class="nama-part">
           <div class="depan">
             <p>Nama Depan</p>

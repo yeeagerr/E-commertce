@@ -10,9 +10,13 @@ const ejs = require("ejs");
 const nodemailer = require("nodemailer");
 const fs = require("fs");
 const utils = require("util");
+const util = require("util");
 const { isUtf8 } = require("buffer");
 
 const readFileAsync = utils.promisify(fs.readFile);
+
+// Assuming you have a 'mysql' connection object
+const queryAsync = util.promisify(mysql.query).bind(mysql);
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -28,17 +32,18 @@ async function renderEjsFile(path, data) {
     const renderedContent = ejs.render(fileContent, data);
     return renderedContent;
   } catch (error) {
-    throw new Error(`Error rendering EJS file: ${error}`);
+    console.log(`Error rendering EJS file: `);
   }
 }
 
-async function sendEmail(nama, email) {
+async function sendEmail(nama, email, hash) {
   try {
     const ejsData = {
       nama: nama,
+      kode: hash, // Pass the hash to the template
     };
 
-    const htmlContent = await renderEjsFile("template.ejs", ejsData);
+    const htmlContent = await renderEjsFile("views/htmlEmail.ejs", ejsData);
 
     const mailOption = {
       from: "nezseco@gmail.com",
@@ -49,10 +54,9 @@ async function sendEmail(nama, email) {
 
     const info = await transporter.sendMail(mailOption);
     console.log("EMAIL SENT");
-
-    return info;
   } catch (error) {
     console.error("Error sending email:", error);
+    throw error; // Rethrow the error to handle it in the calling function
   }
 }
 
@@ -90,28 +94,68 @@ app.get("/register", (req, res) => {
   res.sendFile(path.join(__dirname + "/LogOrReg/register.html"));
 });
 
-app.post("/register", (req, res) => {
+// app.post("/register", (req, res) => {
+//   const username = req.body.username;
+//   const email = req.body.email;
+//   const password = req.body.pass;
+
+//   mysql.query(`SELECT * FROM user WHERE email = '${email}'`, (err, result) => {
+//     if (err) throw err;
+
+//     if (result.length > 0) {
+//       return res.redirect("/err/regEmail");
+//     }
+
+//     const sql = `INSERT INTO user (username, password, email, kode) VALUES ('${username}', '${password}', '${email}', '${hash}')`;
+
+//     mysql.query(sql, (err) => {
+//       if (err) throw err;
+//       console.log("USER SUCCES ADDED");
+
+//       sendEmail(username, email);
+
+//       res.render("htmlEmail", { kode: `${hash}` });
+//       return res.redirect(`/success/${hash}`);
+//     });
+//   });
+// });
+
+app.post("/register", async (req, res) => {
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.pass;
 
-  mysql.query(`SELECT * FROM user WHERE email = '${email}'`, (err, result) => {
-    if (err) throw err;
+  try {
+    // Generate a new hash for each registration
+    const hash = hashing();
 
-    if (result.length > 0) {
+    // Check if email is already registered
+    const existingUser = await queryAsync(
+      `SELECT * FROM user WHERE email = ?`,
+      [email]
+    );
+
+    if (existingUser.length > 0) {
       return res.redirect("/err/regEmail");
     }
 
-    const sql = `INSERT INTO user (username, password, email, kode) VALUES ('${username}', '${password}', '${email}', '${hash}')`;
+    // Insert user into the database
+    await queryAsync(
+      "INSERT INTO user (username, password, email, kode) VALUES (?, ?, ?, ?)",
+      [username, password, email, hash]
+    );
 
-    mysql.query(sql, (err) => {
-      if (err) throw err;
-      console.log("USER SUCCES ADDED");
+    console.log("USER SUCCESSFULLY ADDED");
 
-      sendEmail(email);
-      return res.redirect(`/success/${resulthash}`);
-    });
-  });
+    // Send the email
+    await sendEmail(username, email, hash);
+
+    // Redirect to the success page with the new hash
+    return res.redirect(`/success/${hash}`);
+  } catch (error) {
+    console.error("Error registering user:", error);
+    return res.redirect("/err/registerError");
+  }
 });
 
 app.get("/err/:cause", (req, res) => {
@@ -133,7 +177,76 @@ app.get("/err/:cause", (req, res) => {
 
 app.get("/success/:newParams", (req, res) => {
   const params = req.params.newParams;
-  res.render("verif", { params: params });
+
+  mysql.query(`SELECT * FROM user WHERE kode = ? `, [params], (err, result) => {
+    let fetch;
+    result.forEach((element) => {
+      fetch = element.status;
+    });
+
+    if (fetch === "second") {
+      res.redirect(`/verif2/fillout/${params}`);
+    } else {
+      res.render("verif", { params: params });
+    }
+  });
+});
+
+app.get("/verif/:hash/:status", (req, res) => {
+  const pHash = req.params.hash;
+  const status = req.params.status;
+
+  mysql.query(
+    `UPDATE user SET status = ? WHERE kode = ?`,
+    [status, pHash],
+    (err) => {
+      if (err) throw err;
+
+      res.redirect(`/verif2/fillout/${pHash}`);
+    }
+  );
+
+  mysql.query(`SELECT * FROM user WHERE kode = ?`, [pHash], (err, result) => {
+    if (err) throw err;
+
+    for (let data of result) {
+      if (data === "second") {
+        res.redirect(`/verif2/fillout/${pHash}`);
+      }
+    }
+  });
+});
+
+app.get("/verif2/fillout/:hash", (req, res) => {
+  const pHash = req.params.hash;
+
+  mysql.query(`SELECT * FROM user WHERE kode = ?`, [pHash], (err, result) => {
+    for (let data of result) {
+      if (data.status === "second") {
+        res.render("fillout", { kode: data.kode });
+      } else {
+        res.redirect(`/succes/${pHash}`);
+      }
+    }
+  });
+});
+
+app.post("/verif2/fillout/:hash", (req, res) => {
+  const pHash = req.params.hash;
+  const namaDepan = req.body.namaDepan;
+  const namaBelakang = req.body.namaBelakang;
+
+  mysql.query(
+    `UPDATE user SET namad = ?,  namab = ?, status = 'third' WHERE kode = '${pHash}'`,
+    [namaDepan, namaBelakang],
+    (err, result) => {
+      if (err) {
+        console.log("gagal update nama ");
+      }
+
+      res.redirect("/");
+    }
+  );
 });
 
 app.listen(PORT, () => {
