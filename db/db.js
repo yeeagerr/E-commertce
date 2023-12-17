@@ -9,7 +9,10 @@ const mysqldb = () => {
   });
 
   connect.connect((err) => {
-    if (err) throw err;
+    if (err) {
+      console.log("Err Connect Database");
+      return;
+    }
     console.log("DB CONNECTED");
   });
 

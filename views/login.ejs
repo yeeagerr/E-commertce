@@ -98,16 +98,18 @@
         <div class="title-reg">
           <h1>Login akun</h1>
           <p>Masukkan detail Anda di bawah ini</p>
+          <p style="color: red"><%= err %></p>
         </div>
 
-        <form action="" method="post">
-          <input type="email" placeholder="Email" />
+        <form action="/login" method="post">
+          <input name="email" type="email" placeholder="Email" />
           <div class="password-part">
             <input
               type="password"
               placeholder="Password"
               class="passInput"
               autocomplete="off"
+              name="password"
             />
             <i class="fa-regular fa-eye icon-see-pass"></i>
           </div>

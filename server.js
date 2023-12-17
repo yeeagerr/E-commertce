@@ -5,6 +5,24 @@ const path = require("path");
 const app = express();
 const mysql = require("./db/db.js");
 const ejs = require("ejs");
+const session = require("express-session");
+
+//session
+app.use(
+  session({
+    secret: "S3SS-10N",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
+function needSession(req, res) {
+  if (req.session && req.session.user) {
+    return res.sendFile(path.join(__dirname + "/indexing/indexing.html"));
+  } else {
+    return res.sendFile(path.join(__dirname + "/appMain.html"));
+  }
+}
 
 //email
 const nodemailer = require("nodemailer");
@@ -80,14 +98,44 @@ app.set("view engine", "ejs");
 app.set("views", "views");
 
 const PORT = process.env.PORT || 3000;
+
 app.use(express.static(__dirname));
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname + "index.html"));
-});
+app.get("/", needSession, function (req, res) {});
 
 app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname + "/LogOrReg/login.html"));
+  let error = "";
+
+  res.render("login", { err: error });
+});
+
+app.post("/login", (req, res) => {
+  const email = req.body.email;
+  const pass = req.body.password;
+
+  if (email || pass) {
+    mysql.query(
+      "SELECT * FROM user WHERE email = ? AND password = ?",
+      [email, pass],
+      (err, result) => {
+        if (err) {
+          return console.log("err login");
+        }
+        let error = "";
+
+        if (result.length > 0) {
+          req.session.user = `${email}, ${pass}`;
+          res.redirect("/");
+        } else {
+          error = "Username Atau Password Salah !";
+          res.render("login", { err: error });
+        }
+      }
+    );
+  } else {
+    error = "Form Masih Kosong !";
+    res.render("login", { err: error });
+  }
 });
 
 app.get("/register", (req, res) => {
@@ -167,12 +215,12 @@ app.get("/err/:cause", (req, res) => {
     case "regEmail":
       output = "Email Sudah Terdaftar";
       redirect = "/register";
+      res.render("error", { output: output, redirect: redirect });
       break;
 
     default:
       break;
   }
-  res.render("error", { output: output, redirect: redirect });
 });
 
 app.get("/success/:newParams", (req, res) => {
@@ -240,13 +288,21 @@ app.post("/verif2/fillout/:hash", (req, res) => {
     `UPDATE user SET namad = ?,  namab = ?, status = 'third' WHERE kode = '${pHash}'`,
     [namaDepan, namaBelakang],
     (err, result) => {
+      let dataFetch;
+
       if (err) {
         console.log("gagal update nama ");
       }
 
+      req.session.user = `${pHash}`;
       res.redirect("/");
     }
   );
+});
+
+app.get("/index/logout", (req, res) => {
+  req.session.destroy();
+  res.redirect("/");
 });
 
 app.listen(PORT, () => {

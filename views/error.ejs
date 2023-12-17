@@ -94,22 +94,24 @@
     </div>
 
     <div class="err-container">
-      <h1 style="font-size: 100px; margin: 0px">404 Not Found</h1>
-      <p>Kamu mengunjungi halaman yang tidak ada. Kamu bisa kembali</p>
+      <h1 style="font-size: 100px; margin: 0px"><%= output %></h1>
+      <p>Terjadi Kesalahan Saat Mengoperasikan Sesuatu. Kamu bisa kembali</p>
 
-      <button
-        style="
-          background-color: #db4444;
-          border: none;
-          height: 45px;
-          width: 200px;
-          color: white;
-          border-radius: 5px;
-          cursor: pointer;
-        "
-      >
-        Kembali Ke Beranda
-      </button>
+      <a href="<%= redirect %>">
+        <button
+          style="
+            background-color: #db4444;
+            border: none;
+            height: 45px;
+            width: 200px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+          "
+        >
+          Kembali
+        </button>
+      </a>
     </div>
 
     <div class="mfooter">
