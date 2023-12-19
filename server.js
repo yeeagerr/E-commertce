@@ -323,6 +323,7 @@ app.post("/verif2/fillout/:hash", (req, res) => {
 
 app.get("/account/:kode", (req, res) => {
   const params = req.params.kode;
+  sessionCheck(req, res, params);
 
   mysql.query("SELECT * FROM user WHERE kode = ?", [params], (err, result) => {
     if (result.length > 0) {
@@ -434,11 +435,15 @@ app.post("/account/:kode", (req, res) => {
 
 app.get("/about/:kode", (req, res) => {
   const params = req.params.kode;
+  sessionCheck(req, res, params);
+
   res.render("aboutus", { kode: params });
 });
 
 app.get("/contact/:kode", (req, res) => {
   const params = req.params.kode;
+  sessionCheck(req, res, params);
+
   mysql.query(`SELECT * FROM user WHERE kode = ?`, [params], (err, results) => {
     if (err) {
       return console.log("error in contact");
@@ -457,6 +462,8 @@ app.post("/contact/:id", (req, res) => {
   const nohp = req.body.nohp;
   const isi = req.body.keluh;
 
+  sessionCheck(req, res, params);
+
   try {
     sendAdvice(nama, email, nohp, isi, params);
 
@@ -468,16 +475,22 @@ app.post("/contact/:id", (req, res) => {
 
 app.get("/wishlist/:kode/:kode2", (req, res) => {
   const kode = req.params.kode2;
+  sessionCheck(req, res, kode);
+
   res.render("wishlist", { kode: kode });
 });
 
 app.get("/cart/:kode", (req, res) => {
   const params = req.params.kode;
+  sessionCheck(req, res, params);
+
   res.render("cart", { kode: params });
 });
 
 app.get("/proces/cart/:id", (req, res) => {
   const params = req.params.id;
+  sessionCheck(req, res, params);
+
   res.render("checkout", { kode: params });
 });
 
