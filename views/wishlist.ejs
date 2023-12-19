@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../style/wishlist.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="start-top">
+      <p>
+        Penjualan Tanggal dan Bulan Oktober ini Gratis Ongkir
+        <strong>50%</strong> -
+        <a href="">Belanja Sekarang</a>
+      </p>
+
+      <select value="" class="pilih-bahasa">
+        <option name="indonesia">Bahasa Indonesia</option>
+        <option name="english">English</option>
+        <option name="japan">Japan</option>
+      </select>
+    </div>
+
+    <div class="mnavbar">
+      <h1>LOGO</h1>
+
+      <div class="nav-list">
+        <p><a href="/Main/<%= kode %>">Beranda</a></p>
+        <p><a href="/contact/<%= kode %>">Hubungi</a></p>
+        <p><a href="/about/<%= kode %>">Tentang</a></p>
+      </div>
+
+      <div class="nav-extra">
+        <div class="nav-ext-top">
+          <input
+            class="searching search2"
+            type="text"
+            placeholder="Cari Barang"
+          />
+          <i
+            class="fa-solid fa-xmark search-icon cancel2"
+            style="cursor: pointer; color: #000000; display: none"
+          ></i>
+          <i
+            onclick="window.location.href =''"
+            class="fa-regular fa-heart icon-extra"
+            style="color: #000000"
+          ></i>
+          <i
+            onclick="window.location.href ='/cart/<%= kode %>'"
+            class="fa-solid fa-cart-shopping icon-extra"
+            style="color: #000000"
+          ></i>
+
+          <div class="user-icon">
+            <img
+              src="../../src/icon/user.png"
+              class="user-photo"
+              alt="user default "
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="user-icon-dropdown">
+      <div class="drop-user-content">
+        <img
+          class="user-photo-dropdown"
+          src="../../src/icon/user2.png"
+          alt="user setting"
+        />
+        <p>Manage My Account</p>
+      </div>
+      <div class="drop-user-content">
+        <img
+          class="user-photo-dropdown"
+          src="../../src/icon/icon-mallbag.png"
+          alt="user setting"
+        />
+        <p>Keranjang Saya</p>
+      </div>
+      <div class="drop-user-content">
+        <img
+          class="user-photo-dropdown"
+          src="../../src/icon/Icon-logout.png"
+          alt="user setting"
+        />
+        <p>Logout</p>
+      </div>
+    </div>
+    <div class="navres">
+      <div class="three-line">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="nav-extra">
+        <div class="nav-ext-top">
+          <input
+            class="searching search3"
+            type="text"
+            placeholder="Cari Barang"
+          />
+          <i
+            class="fa-solid fa-xmark search-icon cancel3"
+            style="cursor: pointer; color: #000000; display: none"
+          ></i>
+          <i
+            onclick="window.location.href =''"
+            class="fa-regular fa-heart icon-extra"
+            style="color: #000000"
+          ></i>
+          <i
+            onclick="window.location.href ='/cart/<%= kode %>'"
+            class="fa-solid fa-cart-shopping icon-extra"
+            style="color: #000000"
+          ></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-ext-bot bot3">
+      <div class="search-slide">
+        <!-- <div class="product-search">
+          <div class="ps-left">
+            <img src="../src/productImg/dogfood.png" />
+          </div>
+          <div class="ps-right">
+            <p>Dog Food</p>
+            <img src="../src/rating/rating-4.png" alt="" />
+            <p>Rp. 100.000</p>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <div class="resLogReg">
+        <button>Akun</button>
+        <button>Logout</button>
+      </div>
+
+      <div class="resnav-content">
+        <p>
+          <i class="fa-solid fa-house"></i
+          ><a href="/Main/<%= kode %>">Beranda</a>
+        </p>
+        <p>
+          <i class="fa-solid fa-address-book"></i>
+          <a href="/contact/<%= kode %>">Hubungi</a>
+        </p>
+        <p>
+          <i class="fa-solid fa-circle-info"></i
+          ><a href="/about/<%= kode %>">Tentang</a>
+        </p>
+        <p><i class="fa-solid fa-address-card"></i><a href="#">Logout</a></p>
+        <p>
+          <i class="fa-solid fa-address-card"></i
+          ><a href="/account/<%= kode %>">Akun</a>
+        </p>
+      </div>
+
+      <div class="resnav-info">
+        <p>
+          Penjualan Tanggal dan Bulan Oktober ini Gratis Ongkir
+          <strong>50%</strong> -
+          <a href="">Belanja Sekarang</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="whilist-container">
+      <div class="container-content">
+        <div class="whilist-part">
+          <div class="whilist-title">
+            <div>
+              <p style="display: inline; font-size: larger">Wishlist</p>
+              <p style="display: inline">( 0 )</p>
+            </div>
+            <button class="moveToCart js-move">
+              Pindahkan Semua Dalam Keranjang
+            </button>
+          </div>
+
+          <div class="wishlist-card">
+            <div class="scrooling-wc">
+              <!-- <div class="best-sell-card">
+                <div class="image-product">
+                  <div class="image-product-overlay">
+                    <div class="overlay-top">
+                      <div class="action-overlay aksi-heart1">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </div>
+                    </div>
+
+                    <div class="overlay-bottom overlayHolder1">
+                      <p>Tambah Kan Ke keranjang</p>
+                    </div>
+                  </div>
+                </div>
+                <p>Gucci duffle bag</p>
+                <div class="bs-pricing">
+                  <p>Rp. 15,249,600</p>
+                </div>
+              </div> -->
+            </div>
+          </div>
+
+          <div class="just-for-you">
+            <div class="jfy-title">
+              <div class="this-month">
+                <div class="red-mark"></div>
+                <p>Hanya Untuk Kamu</p>
+              </div>
+
+              <button class="moveToCart">Lihat Semua</button>
+            </div>
+
+            <div class="jfy-card">
+              <div class="jfy-scrooling">
+                <!-- <div class="best-sell-card">
+                  <div class="image-product">
+                    <div class="image-product-overlay">
+                      <div class="overlay-top">
+                        <div class="action-overlay aksi-heart1">
+                          <i class="fa-regular fa-eye"></i>
+                        </div>
+                      </div>
+
+                      <div class="overlay-bottom overlayHolder1">
+                        <p>Tambah Kan Ke keranjang</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p>Gucci duffle bag</p>
+                  <div class="bs-pricing">
+                    <p>Rp. 15,249,600</p>
+                    <p>Rp. 18,499,680</p>
+                  </div>
+                  <div class="bs-rate">
+                    <img src="../../src/rating/rating-4.png" alt="" />
+                    <p>( 75 )</p>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mfooter">
+      <div class="footer-holder">
+        <div class="footer-content">
+          <p>Exclusive</p>
+          <p>Subscribe</p>
+          <p>Dapatkan 10% diskon belanja pertamamu</p>
+          <div class="submit-code">
+            <input type="text" placeholder="Masukan Email Kamu" />
+            <img src="../../src/icon/Vector.png" alt="submit-vector" />
+          </div>
+        </div>
+
+        <div class="footer-content">
+          <p>Support</p>
+          <p>Indonesia, Batam, Bengkong Baru Blok A No 36</p>
+          <p>nezseco@gmail.com</p>
+          <p>0811771239123</p>
+        </div>
+        <div class="footer-content">
+          <p>Account</p>
+          <p>My Account</p>
+          <p>Login / Register</p>
+          <p>Keranjang</p>
+          <p>Wishlist</p>
+          <p>Shop</p>
+        </div>
+        <div class="footer-content">
+          <p>Quick Link</p>
+          <p>Privacy Policy</p>
+          <p>Terms Of Use</p>
+          <p>FAQ</p>
+          <p>Contact</p>
+        </div>
+        <div class="footer-content">
+          <p>Unduh Aplikasi</p>
+          <div class="download">
+            <p>Aplikasi masih belum ada</p>
+            <div class="source-download">
+              <div class="qr-code">
+                <img src="../../src/images/Qr Code.png" alt="qr-code" />
+              </div>
+              <div class="link-download">
+                <div class="link-to-download">
+                  <img
+                    src="../../src/images/png-transparent-google-play-store-logo-google-play-app-store-android-wallets-text-label-logo.png"
+                    alt="Playstore"
+                  />
+                </div>
+                <div class="link-to-download">
+                  <img
+                    src="../../src/images/download-appstore.png"
+                    alt="Appstore"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="social-media">
+              <div class="sosial-media-icon">
+                <img
+                  src="../../src/icon/Icon-Facebook.png"
+                  alt="Icon-Facebook"
+                />
+              </div>
+              <div class="sosial-media-icon">
+                <img src="../../src/icon/Icon-Twitter.png" alt="Icon-Twitter" />
+              </div>
+              <div class="sosial-media-icon">
+                <img
+                  src="../../src/icon/Icon-Linkedin.png"
+                  alt="Icon-Linkedin"
+                />
+              </div>
+              <div class="sosial-media-icon">
+                <img
+                  src="../../src/icon/icon-instagram.png"
+                  alt="icon-instagram"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="module" src="../../scripts/animateJs/iconRes.js"></script>
+  <script src="../../scripts/animateJs/responsive.js"></script>
+  <script type="module" src="../../scripts/wishListSummary/runWish.js"></script>
+  <script type="module" src="/pagesHTML/wishlist/srch.js"></script>
+</html>

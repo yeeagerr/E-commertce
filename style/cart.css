@@ -332,6 +332,7 @@ body {
   justify-content: start;
   width: 85%;
   transition: 0.15s;
+  cursor: pointer;
 }
 
 .drop-user-content p {

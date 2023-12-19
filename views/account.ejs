@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/style/account.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="start-top">
+      <p>
+        Penjualan Tanggal dan Bulan Oktober ini Gratis Ongkir
+        <strong>50%</strong> -
+        <a href="">Belanja Sekarang</a>
+      </p>
+
+      <select value="" class="pilih-bahasa">
+        <option name="indonesia">Bahasa Indonesia</option>
+        <option name="english">English</option>
+        <option name="japan">Japan</option>
+      </select>
+    </div>
+
+    <div class="mnavbar">
+      <h1>LOGO</h1>
+
+      <div class="nav-list">
+        <p><a href="/Main/<%= data.kode %>">Beranda</a></p>
+        <p><a href="/contact/<%= data.kode %>">Hubungi</a></p>
+        <p><a href="/about/<%= data.kode %>">Tentang</a></p>
+      </div>
+
+      <div class="nav-extra">
+        <input class="searching" type="text" placeholder="Cari Barang" />
+        <i
+          class="fa-solid fa-magnifying-glass search-icon"
+          style="cursor: pointer; color: #000000"
+        ></i>
+        <i
+          onclick="window.location.href ='/wishlist/<%= data.kode %>/<%= data.kode %>'"
+          class="fa-regular fa-heart icon-extra"
+          style="color: #000000"
+        ></i>
+        <i
+          onclick="window.location.href ='../cart/cart.html'"
+          class="fa-solid fa-cart-shopping icon-extra"
+          style="color: #000000"
+        ></i>
+
+        <div class="user-icon">
+          <img
+            src="../../src/icon/user.png"
+            class="user-photo"
+            alt="user default "
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="user-icon-dropdown">
+      <div class="drop-user-content">
+        <img
+          class="user-photo-dropdown"
+          src="../../src/icon/user2.png"
+          alt="user setting"
+        />
+        <p>Manage My Account</p>
+      </div>
+      <div
+        class="drop-user-content"
+        onclick="window.location.href ='/cart/<%= data.kode %>'"
+      >
+        <img
+          class="user-photo-dropdown"
+          src="../../src/icon/icon-mallbag.png"
+          alt="user setting"
+        />
+        <p>Keranjang Saya</p>
+      </div>
+      <div class="drop-user-content" onclick="window.location.href ='/logout'">
+        <img
+          class="user-photo-dropdown"
+          src="../../src/icon/Icon-logout.png"
+          alt="user setting"
+        />
+        <p>Logout</p>
+      </div>
+    </div>
+
+    <div class="navres">
+      <div class="three-line">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="nav-extra">
+        <input class="searching" type="text" placeholder="Cari Barang" />
+        <i
+          class="fa-solid fa-magnifying-glass search-icon"
+          style="cursor: pointer; color: #000000"
+        ></i>
+        <i
+          onclick="window.location.href ='/wishlist/<%= data.kode %>/<%= data.kode %>'"
+          class="fa-regular fa-heart icon-extra"
+          style="color: #000000"
+        ></i>
+        <i
+          onclick="window.location.href ='../cart/cart.html'"
+          class="fa-solid fa-cart-shopping icon-extra"
+          style="color: #000000"
+        ></i>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <div class="resLogReg">
+        <button onclick="window.location.href ='/account/<%= data.kode %>'">
+          Akun
+        </button>
+        <button>Logout</button>
+      </div>
+
+      <div class="resnav-content">
+        <p>
+          <i class="fa-solid fa-house"></i
+          ><a href="/Main/<%= data.kode %>">Beranda</a>
+        </p>
+        <p>
+          <i class="fa-solid fa-address-book"></i>
+          <a href="/contact/<%= data.kode %>">Hubungi</a>
+        </p>
+        <p>
+          <i class="fa-solid fa-circle-info"></i
+          ><a href="/about/<%= data.kode %>">Tentang</a>
+        </p>
+      </div>
+
+      <div class="resnav-info">
+        <p>
+          Penjualan Tanggal dan Bulan Oktober ini Gratis Ongkir
+          <strong>50%</strong> -
+          <a href="">Belanja Sekarang</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="welcoming-title">
+      <div>
+        <p>
+          Selamat Datang! <span><%= data.namad %> <%= data.namab %>.</span>
+          <%= kki %> <%= aktor %> <%= kka %>
+        </p>
+      </div>
+    </div>
+
+    <div class="account-setting-container">
+      <div class="left-part">
+        <div class="manage-my-acc">
+          <p>Atur Akun Saya</p>
+
+          <div class="list-manage">
+            <p class="selected">Profil Saya</p>
+            <p>Buku Alamat</p>
+            <p>Pengaturan Pembayaran</p>
+          </div>
+        </div>
+
+        <div class="manage-my-acc">
+          <p>Orderan Saya</p>
+
+          <div class="list-manage">
+            <p>Lacak Produk</p>
+            <p>Pengembalian Barang</p>
+            <p>Pembatalan Barang</p>
+          </div>
+        </div>
+      </div>
+      <div class="right-part">
+        <h2>Edit Profil Mu</h2>
+        <span style="color: red"><p><%= output %></p></span>
+
+        <form action="<%= data.kode %>" method="post">
+          <div class="nama-part">
+            <div class="depan">
+              <p>Nama Depan</p>
+              <input
+                required
+                name="namaDepan"
+                type="text"
+                placeholder="<%= data.namad %>"
+              />
+            </div>
+
+            <div class="belakang">
+              <p>Nama Akhir</p>
+              <input
+                required
+                name="namaBelakang"
+                type="text"
+                placeholder="<%= data.namab %>"
+              />
+            </div>
+          </div>
+
+          <div class="nama-part">
+            <div class="depan">
+              <p>Email</p>
+              <input
+                required
+                type="email"
+                name="email"
+                placeholder="<%= data.email %>"
+              />
+            </div>
+
+            <div class="belakang">
+              <p>Alamat</p>
+              <input
+                required
+                type="text"
+                name="alamat"
+                placeholder="<%= data.alamat %>"
+              />
+            </div>
+          </div>
+
+          <div class="password-part">
+            <p>Ganti Password</p>
+            <input
+              required
+              type="password"
+              placeholder="Password Saat Ini"
+              autocomplete="off"
+              name="password"
+            />
+            <input
+              required
+              placeholder="Password Baru"
+              type="password"
+              autocomplete="off"
+              name="newPassword"
+            />
+            <input
+              required
+              placeholder="Konfirmasi Password Baru"
+              type="password"
+              autocomplete="off"
+              name="validationPw"
+            />
+          </div>
+
+          <div class="btnForm">
+            <button>Batal</button>
+            <button>Simpan Perubahan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="mfooter">
+      <div class="footer-holder">
+        <div class="footer-content">
+          <p>Exclusive</p>
+          <p>Subscribe</p>
+          <p>Dapatkan 10% diskon belanja pertamamu</p>
+          <div class="submit-code">
+            <input type="text" placeholder="Masukan Email Kamu" />
+            <img src="../../src/icon/Vector.png" alt="submit-vector" />
+          </div>
+        </div>
+
+        <div class="footer-content">
+          <p>Support</p>
+          <p>Indonesia, Batam, Bengkong Baru Blok A No 36</p>
+          <p>nezseco@gmail.com</p>
+          <p>0811771239123</p>
+        </div>
+        <div class="footer-content">
+          <p>Account</p>
+          <p>My Account</p>
+          <p>Login / Register</p>
+          <p>Keranjang</p>
+          <p>Wishlist</p>
+          <p>Shop</p>
+        </div>
+        <div class="footer-content">
+          <p>Quick Link</p>
+          <p>Privacy Policy</p>
+          <p>Terms Of Use</p>
+          <p>FAQ</p>
+          <p>Contact</p>
+        </div>
+        <div class="footer-content">
+          <p>Unduh Aplikasi</p>
+          <div class="download">
+            <p>Aplikasi masih belum ada</p>
+            <div class="source-download">
+              <div class="qr-code">
+                <img src="../../src/images/Qr Code.png" alt="qr-code" />
+              </div>
+              <div class="link-download">
+                <div class="link-to-download">
+                  <img
+                    src="../../src/images/png-transparent-google-play-store-logo-google-play-app-store-android-wallets-text-label-logo.png"
+                    alt="Playstore"
+                  />
+                </div>
+                <div class="link-to-download">
+                  <img
+                    src="../../src/images/download-appstore.png"
+                    alt="Appstore"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="social-media">
+              <div class="sosial-media-icon">
+                <img
+                  src="../../src/icon/Icon-Facebook.png"
+                  alt="Icon-Facebook"
+                />
+              </div>
+              <div class="sosial-media-icon">
+                <img src="../../src/icon/Icon-Twitter.png" alt="Icon-Twitter" />
+              </div>
+              <div class="sosial-media-icon">
+                <img
+                  src="../../src/icon/Icon-Linkedin.png"
+                  alt="Icon-Linkedin"
+                />
+              </div>
+              <div class="sosial-media-icon">
+                <img
+                  src="../../src/icon/icon-instagram.png"
+                  alt="icon-instagram"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../../scripts/animateJs/iconRes.js"></script>
+  <script src="../../scripts/animateJs/responsive.js"></script>
+</html>

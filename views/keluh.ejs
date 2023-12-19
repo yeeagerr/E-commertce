@@ -33,34 +33,35 @@
         display: inline-block;
         margin-top: 20px;
         padding: 10px 20px;
-        background-color: #007bff;
+        background-color: #ff3300;
         color: #ffffff;
         text-decoration: none;
         border-radius: 5px;
+      }
+
+      h2 {
+        margin: 4px 0 4px 0;
       }
     </style>
   </head>
 
   <body>
     <div class="container">
-      <h1>Email Verification</h1>
-      <p>
-        Thank you for signing up! To complete your registration, please click
-        the verification link below:
-      </p>
+      <h2>Nama : <%= nama %></h2>
+      <h2>Email : <%= email %></h2>
+      <h2>Nomor Hp : <%= nohp %></h2>
+      <p>Kode Unik Akun : <strong><%= kode %></strong></p>
+
+      <p>Keluhan / Masukan :</p>
+      <p><%= keluhan %></p>
       <a
         style="color: white"
         class="verification-link js-link"
-        href="http://localhost:3000/verif/<%= kode %>/second"
+        href="http://localhost:3000/penghapusan/<%= kode %>"
         target="_blank"
-        >Verify Email</a
-      >
-      <p>
-        <strong>
-          If you did not sign up for an account, you can safely ignore this
-          email.
-        </strong>
-      </p>
+        >Tidak Setuju
+      </a>
+      <p><strong>Tombol Ini Akan Menghapus Akun Sang Pengirim Pesan</strong></p>
     </div>
   </body>
 </html>

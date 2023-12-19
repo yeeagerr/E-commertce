@@ -28,6 +28,8 @@ export function addWish(id, extraWish) {
     });
   }
 
+  console.log(wish);
+
   localStorage.setItem("wish-test7", JSON.stringify(wish));
 }
 

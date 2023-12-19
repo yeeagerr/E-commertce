@@ -24,7 +24,7 @@ export function generateBestSelling() {
         <div class="image-product">
             <div class="image-product-overlay">
                 <div class="overlay-top">
-                <div class="action-overlay aksi-heart-${bsproduk.bsPart}" data-id="${bsproduk.id}">
+                <div class="action-overlay aksi-heart-${bsproduk.bsPart}" data-extra-foto="${bsproduk.foto}" data-id="${bsproduk.id}">
                     <i class="fa-regular fa-heart hearticon"></i>
                 </div>
                 <div class="action-overlay aksi-lihat">
@@ -72,12 +72,12 @@ export function AnimateProduct() {
       aksiheart.classList.toggle("aksianimate");
       const isaksianimate = aksiheart.classList.contains("aksianimate");
 
-      let idProduct = aksiheart.dataset.id;
+      let { id, extraFoto } = aksiheart.dataset;
 
       if (!isaksianimate) {
-        deleteWish(idProduct);
+        deleteWish(id);
       } else {
-        addWish(idProduct);
+        addWish(id, extraFoto);
       }
 
       // local storage SET

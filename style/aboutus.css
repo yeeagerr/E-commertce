@@ -230,6 +230,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: start;
+  cursor: pointer;
   width: 85%;
   transition: 0.15s;
 }

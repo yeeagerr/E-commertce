@@ -16,9 +16,9 @@ app.use(
   })
 );
 
-function needSession(req, res) {
+function sessionCheck(req, res, params) {
   if (req.session && req.session.user) {
-    return res.sendFile(path.join(__dirname + "/indexing/indexing.html"));
+    return res.render("indexing", { kode: params });
   } else {
     return res.sendFile(path.join(__dirname + "/appMain.html"));
   }
@@ -78,6 +78,32 @@ async function sendEmail(nama, email, hash) {
   }
 }
 
+async function sendAdvice(nama, email, nohp, keluhan, unik) {
+  try {
+    let dataKeluh = {
+      nama: nama,
+      email: email,
+      nohp: nohp,
+      keluhan: keluhan,
+      kode: unik,
+    };
+
+    const ejsRender = await renderEjsFile("views/keluh.ejs", dataKeluh);
+
+    const mailOption = {
+      from: email,
+      to: "nezseco@gmail.com",
+      subject: `Baginda Developer Habib, ada keluhan dari rakyat`,
+      html: ejsRender,
+    };
+
+    const info = await transporter.sendMail(mailOption);
+    console.log("email keluh berhasil dikirim");
+  } catch (error) {
+    console.log("error sending keluhan", error);
+  }
+}
+
 //
 
 function hashing() {
@@ -101,7 +127,26 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.static(__dirname));
 
-app.get("/", needSession, function (req, res) {});
+app.get("/", function (req, res) {
+  res.redirect(`/Main/${hash}`);
+});
+
+app.get("/landing/:uniq", (req, res) => {
+  const uniq = req.params.uniq;
+
+  mysql.query(`SELECT * FROM user WHERE kode = ?`, [uniq], (err, result) => {
+    if (result.length > 0) {
+      res.redirect(`/Main/${result}`);
+    }
+
+    res.redirect(`/Main/${uniq}`);
+  });
+});
+
+app.get("/Main/:kode", function (req, res) {
+  const paramsKode = req.params.kode;
+  sessionCheck(req, res, paramsKode);
+});
 
 app.get("/login", (req, res) => {
   let error = "";
@@ -124,10 +169,11 @@ app.post("/login", (req, res) => {
         let error = "";
 
         if (result.length > 0) {
+          const dataFetch = result[0];
           req.session.user = `${email}, ${pass}`;
-          res.redirect("/");
+          res.redirect(`/Main/${dataFetch.kode}`);
         } else {
-          error = "Username Atau Password Salah !";
+          error = "Email Atau Password Salah !";
           res.render("login", { err: error });
         }
       }
@@ -141,32 +187,6 @@ app.post("/login", (req, res) => {
 app.get("/register", (req, res) => {
   res.sendFile(path.join(__dirname + "/LogOrReg/register.html"));
 });
-
-// app.post("/register", (req, res) => {
-//   const username = req.body.username;
-//   const email = req.body.email;
-//   const password = req.body.pass;
-
-//   mysql.query(`SELECT * FROM user WHERE email = '${email}'`, (err, result) => {
-//     if (err) throw err;
-
-//     if (result.length > 0) {
-//       return res.redirect("/err/regEmail");
-//     }
-
-//     const sql = `INSERT INTO user (username, password, email, kode) VALUES ('${username}', '${password}', '${email}', '${hash}')`;
-
-//     mysql.query(sql, (err) => {
-//       if (err) throw err;
-//       console.log("USER SUCCES ADDED");
-
-//       sendEmail(username, email);
-
-//       res.render("htmlEmail", { kode: `${hash}` });
-//       return res.redirect(`/success/${hash}`);
-//     });
-//   });
-// });
 
 app.post("/register", async (req, res) => {
   const username = req.body.username;
@@ -283,10 +303,11 @@ app.post("/verif2/fillout/:hash", (req, res) => {
   const pHash = req.params.hash;
   const namaDepan = req.body.namaDepan;
   const namaBelakang = req.body.namaBelakang;
+  const alamat = req.body.alamat;
 
   mysql.query(
-    `UPDATE user SET namad = ?,  namab = ?, status = 'third' WHERE kode = '${pHash}'`,
-    [namaDepan, namaBelakang],
+    `UPDATE user SET namad = ?,  namab = ?, status = 'third', alamat = ? WHERE kode = '${pHash}'`,
+    [namaDepan, namaBelakang, alamat],
     (err, result) => {
       let dataFetch;
 
@@ -295,12 +316,172 @@ app.post("/verif2/fillout/:hash", (req, res) => {
       }
 
       req.session.user = `${pHash}`;
-      res.redirect("/");
+      res.redirect(`/Main/${pHash}`);
     }
   );
 });
 
-app.get("/index/logout", (req, res) => {
+app.get("/account/:kode", (req, res) => {
+  const params = req.params.kode;
+
+  mysql.query("SELECT * FROM user WHERE kode = ?", [params], (err, result) => {
+    if (result.length > 0) {
+      const dataFetch = result[0];
+
+      let aktor;
+      let kki;
+      let kka;
+      const output = "";
+
+      if (dataFetch.aktor == "baru") {
+        aktor = "";
+      } else {
+        kki = "(";
+        aktor = dataFetch.aktor;
+        kka = ")";
+      }
+
+      res.render("account", {
+        data: dataFetch,
+        aktor: aktor,
+        kki: kki,
+        kka: kka,
+        output: output,
+      });
+    } else {
+      res.send("no data");
+    }
+  });
+});
+
+app.post("/account/:kode", (req, res) => {
+  const kode = req.params.kode;
+
+  const {
+    password,
+    newPassword,
+    validationPw,
+    namaDepan,
+    namaBelakang,
+    email,
+    alamat,
+  } = req.body;
+
+  const qry = `SELECT * FROM user WHERE kode = ?`;
+  let output = "";
+
+  mysql.query(qry, [kode], (err, result) => {
+    let dataFetch = result[0];
+
+    let aktor;
+    let kki;
+    let kka;
+
+    if (dataFetch.aktor == "baru") {
+      aktor = "";
+    } else {
+      kki = "(";
+      aktor = dataFetch.aktor;
+      kka = ")";
+    }
+
+    const qryu = `UPDATE user SET namad = ? , namab = ? , email = ? , alamat = ? , password = ? WHERE kode = ?`;
+
+    if (namaDepan && namaBelakang && email && alamat && kode) {
+      if (password == dataFetch.password) {
+        if (newPassword == validationPw) {
+          mysql.query(
+            qryu,
+            [namaDepan, namaBelakang, email, alamat, newPassword, kode],
+            (err, result) => {
+              if (err) {
+                return console.log("ERR update user info", err);
+              }
+
+              output = "Akun Berhasil Di Update !";
+              res.render("account", {
+                data: dataFetch,
+                aktor: aktor,
+                kki: kki,
+                kka: kka,
+                output: output,
+              });
+            }
+          );
+        } else {
+          output = "Konfirmasi Password Tidak Sama !";
+          res.render("account", {
+            data: dataFetch,
+            aktor: aktor,
+            kki: kki,
+            kka: kka,
+            output: output,
+          });
+        }
+      } else {
+        output = "Password Anda Salah !";
+        res.render("account", {
+          data: dataFetch,
+          aktor: aktor,
+          kki: kki,
+          kka: kka,
+          output: output,
+        });
+      }
+    }
+  });
+});
+
+app.get("/about/:kode", (req, res) => {
+  const params = req.params.kode;
+  res.render("aboutus", { kode: params });
+});
+
+app.get("/contact/:kode", (req, res) => {
+  const params = req.params.kode;
+  mysql.query(`SELECT * FROM user WHERE kode = ?`, [params], (err, results) => {
+    if (err) {
+      return console.log("error in contact");
+    }
+
+    const data = results[0];
+
+    res.render("contact", { kode: params, data: data });
+  });
+});
+
+app.post("/contact/:id", (req, res) => {
+  const params = req.params.id;
+  const nama = req.body.nama;
+  const email = req.body.email;
+  const nohp = req.body.nohp;
+  const isi = req.body.keluh;
+
+  try {
+    sendAdvice(nama, email, nohp, isi, params);
+
+    res.redirect(`/contact/${params}`);
+  } catch (error) {
+    console.log("error /contact/:id", error);
+  }
+});
+
+app.get("/wishlist/:kode/:kode2", (req, res) => {
+  const kode = req.params.kode2;
+  res.render("wishlist", { kode: kode });
+});
+
+app.get("/cart/:kode", (req, res) => {
+  const params = req.params.kode;
+  res.render("cart", { kode: params });
+});
+
+app.get("/proces/cart/:id", (req, res) => {
+  const params = req.params.id;
+  res.render("checkout", { kode: params });
+});
+
+app.get("/logout", (req, res) => {
   req.session.destroy();
   res.redirect("/");
 });

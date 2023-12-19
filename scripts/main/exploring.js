@@ -19,7 +19,7 @@ export function exploreSellTop() {
     <div class="image-product">
       <div class="image-product-overlay">
         <div class="overlay-top">
-          <div class="action-overlay aksi-heart-${counter2}" data-id="${expProduk.id}">
+          <div class="action-overlay aksi-heart-${counter2}" data-extra-foto="${expProduk.foto}" data-id="${expProduk.id}">
             <i class="fa-regular fa-heart hearticon"></i>
           </div>
           <div class="action-overlay aksi-lihat">
@@ -116,12 +116,12 @@ export function transition() {
       heartbtn.classList.toggle("aksianimate");
 
       const isaksianimate = heartbtn.classList.contains("aksianimate");
-      let idProduct = heartbtn.dataset.id;
+      let { id, extraFoto } = heartbtn.dataset;
 
       if (!isaksianimate) {
-        deleteWish(idProduct);
+        deleteWish(id);
       } else {
-        addWish(idProduct);
+        addWish(id, extraFoto);
       }
     });
 

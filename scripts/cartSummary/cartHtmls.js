@@ -151,7 +151,3 @@ function showAction() {
 }
 
 showAction();
-
-document.getElementById("proses-to").addEventListener("click", () => {
-  window.location.href = "../../pagesHTML/checkout/checkout.html";
-});

@@ -26,7 +26,7 @@ export function fSale() {
     <div class="fs-sell-card counting${counter}">
     <div class="fs-sell-top fsstop-${element.fsPart}" style="background-image: url('/src/flashSale/${element.foto}');">
       <div class="overlay-top">
-        <div class="action-overlay aksi-hearts-${counter}" data-product-id="${element.id}">
+        <div class="action-overlay aksi-hearts-${counter}" data-extra-foto="${element.foto}" data-product-id="${element.id}">
           <i class="fa-regular fa-heart hearticon"></i>
         </div>
         <div class="action-overlay aksi-lihat">
@@ -89,14 +89,14 @@ export function fSaleHover() {
     const suksesText = document.querySelector(`.js-sukses3-${count}`);
 
     hearticon.addEventListener("click", () => {
-      const idProduct = hearticon.dataset.productId;
+      const { extraFoto, productId } = hearticon.dataset;
       hearticon.classList.toggle("aksianimate");
       let aply = hearticon.classList.contains("aksianimate");
 
       if (!aply) {
-        deleteWish(idProduct);
+        deleteWish(productId);
       } else {
-        addWish(idProduct);
+        addWish(productId, extraFoto);
       }
 
       localStorage.setItem(`AksiAnimate-${card.fsPart}`, aply);
